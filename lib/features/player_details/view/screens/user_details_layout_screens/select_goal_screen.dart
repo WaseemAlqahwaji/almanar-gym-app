@@ -1,6 +1,7 @@
 import 'package:almanar_application/config/helpers/extensions.dart';
 import 'package:almanar_application/features/core/domain/enums/player_goal.dart';
 import 'package:almanar_application/features/player_details/view/cubit/user_details/user_details_cubit.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,7 +21,9 @@ class _SelectGoalScreenState extends State<SelectGoalScreen> {
   final FixedExtentScrollController _controller = FixedExtentScrollController();
 
   void initListItem() {
-    print(context.read<UserDetailsCubit>().playerGoal.index);
+    if (kDebugMode) {
+      print(context.read<UserDetailsCubit>().playerGoal.index);
+    }
     _controller.jumpToItem(context.read<UserDetailsCubit>().playerGoal.index);
   }
 
@@ -44,7 +47,9 @@ class _SelectGoalScreenState extends State<SelectGoalScreen> {
         onChange: (index) {
           setState(() {
             context.read<UserDetailsCubit>().playerGoal = PlayerGoal.values[index];
-            print(context.read<UserDetailsCubit>().playerGoal);
+            if (kDebugMode) {
+              print(context.read<UserDetailsCubit>().playerGoal);
+            }
           });
         },
         stringsList: _stringsList,

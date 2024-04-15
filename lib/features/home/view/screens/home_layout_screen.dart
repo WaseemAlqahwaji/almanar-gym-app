@@ -34,7 +34,7 @@ class _HomeLayoutState extends State<HomeLayout> {
               context.read<HomeCubit>().currentIndex = index;
             });
           },
-          children: [
+          children: const [
             HomeScreen(),
             TrainingScreen(),
             FoodScreen(),

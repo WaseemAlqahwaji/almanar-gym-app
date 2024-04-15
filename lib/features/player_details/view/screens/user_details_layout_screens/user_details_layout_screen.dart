@@ -16,7 +16,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../config/routes/routes.dart';
 import '../../../../core/view/widgets/back_button.dart';
-import 'Injuries_screen.dart';
+import 'injuries_screen.dart';
 
 class UserDetailsLayoutScreen extends StatefulWidget {
   const UserDetailsLayoutScreen({super.key});

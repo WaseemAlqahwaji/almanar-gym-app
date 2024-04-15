@@ -1,7 +1,5 @@
-import 'package:almanar_application/config/helpers/hex_color.dart';
 import 'package:almanar_application/features/training/view/widgets/glass_container.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 

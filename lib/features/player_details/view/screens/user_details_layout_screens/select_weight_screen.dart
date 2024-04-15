@@ -1,4 +1,5 @@
 import 'package:almanar_application/features/player_details/view/cubit/user_details/user_details_cubit.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -67,7 +68,9 @@ class _SelectWeightScreenState extends State<SelectWeightScreen> {
                       setState(() {
                         context.read<UserDetailsCubit>().playerWeight =
                             value + 40;
-                        print(context.read<UserDetailsCubit>().playerWeight);
+                        if (kDebugMode) {
+                          print(context.read<UserDetailsCubit>().playerWeight);
+                        }
                       });
                     },
                     itemExtent: 15.h,

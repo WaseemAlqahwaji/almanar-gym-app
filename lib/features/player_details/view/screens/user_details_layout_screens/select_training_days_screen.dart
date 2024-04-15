@@ -1,5 +1,6 @@
 import 'package:almanar_application/features/auth/view/widgets/list_wheel_widget.dart';
 import 'package:almanar_application/features/player_details/view/cubit/user_details/user_details_cubit.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,7 +44,9 @@ class _SelectTrainingDaysScreenState extends State<SelectTrainingDaysScreen> {
         onChange: (value){
           setState(() {
             context.read<UserDetailsCubit>().playerTrainingsDays = value + 1;
-            print(context.read<UserDetailsCubit>().playerTrainingsDays);
+            if (kDebugMode) {
+              print(context.read<UserDetailsCubit>().playerTrainingsDays);
+            }
           });
         },
         pointerWidth: 100.0.w,

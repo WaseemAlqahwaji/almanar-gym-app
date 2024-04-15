@@ -3,7 +3,7 @@ import 'package:almanar_application/config/routes/routes.dart';
 import 'package:almanar_application/config/theming/text_style.dart';
 import 'package:almanar_application/config/theming/theme.dart';
 import 'package:almanar_application/features/subscribe/view/cubit/subscription_cubit.dart';
-import 'package:almanar_application/features/subscribe/view/widgets/chooseSubsctiptionWidget.dart';
+import 'package:almanar_application/features/subscribe/view/widgets/choose_subsctiption_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

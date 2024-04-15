@@ -22,7 +22,10 @@ class MyIcons {
   static const String? _kFontPkg = null;
 
   static const IconData vector = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  // ignore: constant_identifier_names
   static const IconData vector__1_ = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  // ignore: constant_identifier_names
   static const IconData vector__2_ = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  // ignore: constant_identifier_names
   static const IconData vector__3_ = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
