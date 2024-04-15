@@ -1,6 +1,5 @@
 import 'package:almanar_application/config/theming/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextStyled {
   static TextStyle font24White600 = const TextStyle(

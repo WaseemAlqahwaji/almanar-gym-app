@@ -2,6 +2,7 @@ import 'package:almanar_application/config/routes/routes.dart';
 import 'package:almanar_application/features/auth/view/cubit/login/login_cubit.dart';
 import 'package:almanar_application/features/auth/view/screens/auth_layout_screens/auth_layout_screen.dart';
 import 'package:almanar_application/features/auth/view/screens/auth_layout_screens/forget_password_screen.dart';
+import 'package:almanar_application/features/food/view/cubit/food_cubit.dart';
 import 'package:almanar_application/features/home/view/cubit/home_cubit.dart';
 import 'package:almanar_application/features/home/view/screens/home_layout_screen.dart';
 import 'package:almanar_application/features/home_not_subscribe/view/cubit/cubit/home_not_subscribed_cubit.dart';
@@ -15,6 +16,7 @@ import 'package:almanar_application/features/subscribe/view/cubit/subscription_c
 import 'package:almanar_application/features/subscribe/view/screens/choose_subscribtion_screen.dart';
 import 'package:almanar_application/features/subscribe/view/screens/subscription_details_screen.dart';
 import 'package:almanar_application/features/subscribe/view/screens/success_screen.dart';
+import 'package:almanar_application/features/training/view/cubit/training_cubit.dart';
 import 'package:almanar_application/features/training/view/screens/training_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,8 +37,12 @@ class AppRouter {
         );
       case Routes.homeLayoutScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => HomeCubit(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (context) => getIt<HomeCubit>()),
+              BlocProvider(create: (context) => getIt<TrainingCubit>()),
+              BlocProvider(create: (context) => getIt<FoodCubit>()),
+            ],
             child: const HomeLayout(),
           ),
         );
@@ -72,7 +78,7 @@ class AppRouter {
       case Routes.homeNotSubscribedLayoutScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => HomeNotSubscribedCubit(),
+            create: (context) => getIt<HomeNotSubscribedCubit>(),
             child: const HomeNotSubscribedLayoutScreen(),
           ),
         );

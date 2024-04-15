@@ -1,4 +1,3 @@
-import 'package:almanar_application/config/helpers/extensions.dart';
 import 'package:almanar_application/features/core/view/widgets/back_button.dart';
 import 'package:almanar_application/features/core/view/widgets/button_item.dart';
 import 'package:almanar_application/features/core/view/widgets/text_form_item.dart';
@@ -8,7 +7,6 @@ import 'package:gap/gap.dart';
 
 import '../../../../../config/helpers/validation.dart';
 import '../../../../../config/theming/text_style.dart';
-
 
 class EnterNewPasswordScreen extends StatefulWidget {
   const EnterNewPasswordScreen({super.key});
@@ -42,7 +40,7 @@ class _EnterNewPasswordScreenState extends State<EnterNewPasswordScreen> {
                 key: formKey,
                 child: Column(
                   children: [
-                    Align(
+                    const Align(
                       alignment: Alignment.centerRight,
                       child: KBackButton(),
                     ),
@@ -83,9 +81,7 @@ class _EnterNewPasswordScreenState extends State<EnterNewPasswordScreen> {
                     const Spacer(),
                     KButton(
                       onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          print("gg");
-                        }
+                        if (formKey.currentState!.validate()) {}
                       },
                       lable: "تأكيد",
                       haveArrow: false,
