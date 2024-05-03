@@ -8,5 +8,7 @@ part 'training_cubit.freezed.dart';
 @singleton
 class TrainingCubit extends Cubit<TrainingState> {
   TrainingCubit() : super(const TrainingState.initial());
-  int trainingDays = 4;
+  int trainingDays = 7;
+
+  /// Get all training days for each training day
 }

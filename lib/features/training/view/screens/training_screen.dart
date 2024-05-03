@@ -1,6 +1,5 @@
 import 'package:almanar_application/features/training/view/cubit/training_cubit.dart';
 import 'package:almanar_application/features/training/view/widgets/training_card_widget.dart';
-import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,6 +15,7 @@ class TrainingScreen extends StatefulWidget {
 class _TrainingScreenState extends State<TrainingScreen> {
   @override
   Widget build(BuildContext context) {
+    cardImagesPath.shuffle();
     return Padding(
       padding: EdgeInsets.only(
         left: 10.0.w,
@@ -24,25 +24,12 @@ class _TrainingScreenState extends State<TrainingScreen> {
       ),
       child: ListView.separated(
         itemCount: context.read<TrainingCubit>().trainingDays,
-        separatorBuilder: (context, index) => const Gap(10.0),
-        itemBuilder: (context, index) => ConditionalBuilder(
-          builder: (context) => Padding(
-            padding: const EdgeInsets.only(
-              bottom: 10.0,
-            ),
-            child: TrainingCardWidget(
+        separatorBuilder: (context, index) => Gap(15.0.h),
+        itemBuilder: (context, index) => TrainingCardWidget(
               exercisesNumber: 20,
-              imagePath: "assets/images/vip_training_card_image.jpg",
+              imagePath: cardImagesPath[index],
               title: daysTitle[index]!,
             ),
-          ),
-          condition: true,
-          fallback: (context) => TrainingCardWidget(
-            exercisesNumber: 20,
-            imagePath: "assets/images/vip_training_card_image.jpg",
-            title: daysTitle[index]!,
-          ),
-        ),
       ),
     );
   }
@@ -56,4 +43,15 @@ class _TrainingScreenState extends State<TrainingScreen> {
     5 : "اليوم السادس",
     6 : "اليوم السابع",
   };
+
+  
+  final List<String> cardImagesPath = [
+    "assets/images/vip_training_card_image0.png",
+    "assets/images/vip_training_card_image1.png",
+    "assets/images/vip_training_card_image2.png",
+    "assets/images/vip_training_card_image0.png",
+    "assets/images/vip_training_card_image1.png",
+    "assets/images/vip_training_card_image2.png",
+    "assets/images/vip_training_card_image1.png",
+  ];
 }

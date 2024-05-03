@@ -65,8 +65,8 @@ class _TrainingCardWidgetState extends State<TrainingCardWidget> {
                         borderRadius: BorderRadius.circular(cardBorder),
                         gradient: LinearGradient(
                           colors: [
-                            Colors.black87.withOpacity(.1),
-                            Colors.black87.withOpacity(.1),
+                            Colors.black87.withOpacity(.4),
+                            Colors.black87.withOpacity(.4),
                           ]
                         ),
                       ),
