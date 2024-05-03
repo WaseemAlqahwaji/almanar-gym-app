@@ -8,4 +8,5 @@ part 'food_cubit.freezed.dart';
 @singleton
 class FoodCubit extends Cubit<FoodState> {
   FoodCubit() : super(const FoodState.initial());
+  int foodDays = 7;
 }

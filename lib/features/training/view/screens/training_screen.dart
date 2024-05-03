@@ -34,7 +34,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
     );
   }
 
-  Map<int , String> daysTitle = {
+  final Map<int , String> daysTitle = {
     0 : "اليوم الأول",
     1 : "اليوم الثاني",
     2 : "اليوم الثالث",

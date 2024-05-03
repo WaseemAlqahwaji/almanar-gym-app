@@ -67,7 +67,8 @@ dependencies:
   # Contains code to deal with internationalized/localized messages, date and number formatting and parsing, bi-directional text, and other internationalization issues.
   intl: ^0.19.0
 
-
+  # A flutter package that allows you to easily create a custom scrollable list.
+  expandable: ^5.0.1
 
 
 
