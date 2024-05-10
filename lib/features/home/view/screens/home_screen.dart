@@ -1,4 +1,5 @@
-import 'package:almanar_application/config/theming/text_style.dart';
+import 'package:almanar_application/config/theming/theme.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -6,11 +7,102 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        "Home Screen",
-        style: TextStyled.font22White600,
+    return Padding(
+      padding: const EdgeInsets.all(30),
+      child: Column(
+        children: [
+          Expanded(
+            child: LineChart(
+              LineChartData(
+                maxX: 180,
+                baselineX: 20,
+                baselineY: 2,
+                maxY: 20,
+                lineBarsData: lineBarsData1,
+                gridData: gridData,
+                borderData: chartBorder(),
+                titlesData: chartTitles(),
+                lineTouchData: chartLineTouchData(),
+              ),
+            ),
+          ),
+          Expanded(child: Container()),
+          Expanded(child: Container())
+        ],
       ),
     );
   }
+
+  LineTouchData chartLineTouchData() => const LineTouchData(
+        handleBuiltInTouches: true,
+        touchTooltipData: LineTouchTooltipData(
+          tooltipBgColor: Colors.white,
+        ),
+      );
+
+  FlTitlesData chartTitles() => const FlTitlesData(
+        leftTitles: AxisTitles(
+          sideTitles: SideTitles(showTitles: false),
+        ),
+        rightTitles: AxisTitles(
+          sideTitles: SideTitles(showTitles: false),
+        ),
+        topTitles: AxisTitles(
+          sideTitles: SideTitles(showTitles: false),
+        ),
+      );
+
+  List<LineChartBarData> get lineBarsData1 => [
+        lineChartBarData1_1,
+      ];
+
+  LineChartBarData get lineChartBarData1_1 => LineChartBarData(
+        isCurved: true,
+        color: KTheme.mainColor,
+        barWidth: 5,
+        isStrokeCapRound: true,
+        dotData: const FlDotData(show: false),
+        belowBarData: BarAreaData(
+          show: false,
+        ),
+        spots: const [
+          FlSpot(0, 0),
+          FlSpot(20, 5),
+          FlSpot(35, 2),
+          FlSpot(60, 10),
+          FlSpot(70, 2),
+          FlSpot(140, 15),
+          FlSpot(160, 3),
+          FlSpot(180, 20),
+        ],
+      );
+
+  Widget bottomTitleWidgets(double value, TitleMeta meta) {
+    TextStyle style = TextStyle(
+      color: KTheme.mainColor,
+      fontWeight: FontWeight.bold,
+      fontSize: 16,
+    );
+    Text text = Text(
+      value.toString(),
+      style: style,
+    );
+
+    return SideTitleWidget(
+      fitInside: SideTitleFitInsideData.fromTitleMeta(meta),
+      axisSide: meta.axisSide,
+      child: text,
+    );
+  }
+
+  SideTitles get bottomTitles => SideTitles(
+        showTitles: true,
+        getTitlesWidget: bottomTitleWidgets,
+      );
+
+  FlBorderData chartBorder() => FlBorderData(
+        show: false,
+  );
+
+  FlGridData get gridData => const FlGridData(show: false);
 }

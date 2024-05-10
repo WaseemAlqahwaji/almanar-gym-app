@@ -7,6 +7,7 @@ class KTheme {
   static Color greyColor = HexColor("#808081");
   static Color backgroundColor = HexColor("#1C2126");
   static Color greyButtonsColor = HexColor("#2C2C2E");
+  static Color chartBackgroundColor = HexColor("#1E2630");
 
   static ThemeData darkTheme() => ThemeData(
         checkboxTheme: CheckboxThemeData(
