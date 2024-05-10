@@ -46,7 +46,7 @@ class _FoodScreenState extends State<FoodScreen> {
                 width: double.infinity,
                 color: KTheme.mainColor,
                 height: 1,
-              )
+              ),
             ],
           ),
         ),
