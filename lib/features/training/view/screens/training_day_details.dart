@@ -27,7 +27,9 @@ class _TrainingDayDetailsState extends State<TrainingDayDetails> {
         width: 140.w,
         child: FloatingActionButton(
           backgroundColor: KTheme.mainColor,
-          onPressed: () {},
+          onPressed: () {
+            context.pushNamed("trainingMusclesScreen");
+          },
           child: const Text(
             "أبدأ التمرين",
             textAlign: TextAlign.center,
@@ -39,7 +41,7 @@ class _TrainingDayDetailsState extends State<TrainingDayDetails> {
           children: [
             screenHeader(),
             ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: 20,
               itemBuilder: (context, index) => Container(
