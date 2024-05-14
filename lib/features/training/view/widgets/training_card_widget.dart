@@ -63,12 +63,10 @@ class _TrainingCardWidgetState extends State<TrainingCardWidget> {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(cardBorder),
-                        gradient: LinearGradient(
-                          colors: [
-                            Colors.black87.withOpacity(.4),
-                            Colors.black87.withOpacity(.4),
-                          ]
-                        ),
+                        gradient: LinearGradient(colors: [
+                          Colors.black87.withOpacity(.4),
+                          Colors.black87.withOpacity(.4),
+                        ]),
                       ),
                     )
                   ],
@@ -83,12 +81,8 @@ class _TrainingCardWidgetState extends State<TrainingCardWidget> {
                         padding: EdgeInsetsDirectional.only(
                           start: 10.0.h,
                         ),
-                        child: Text(
-                          widget.title,
-                          style: TextStyled.font24White600.copyWith(
-                            fontSize: 20,
-                          ),
-                        ),
+                        child: Text(widget.title,
+                            style: TextStyled.font16White400),
                       ),
                       Gap(10.0.h),
                       GlassContainer(
