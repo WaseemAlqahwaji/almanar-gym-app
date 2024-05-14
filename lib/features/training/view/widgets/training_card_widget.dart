@@ -9,12 +9,14 @@ class TrainingCardWidget extends StatefulWidget {
   final String title;
   final int exercisesNumber;
   final String imagePath;
+  final void Function()? onTap;
 
   const TrainingCardWidget({
     super.key,
     required this.imagePath,
     required this.title,
     required this.exercisesNumber,
+    required this.onTap,
   });
 
   @override
@@ -40,7 +42,7 @@ class _TrainingCardWidgetState extends State<TrainingCardWidget> {
       ),
       height: 160.h,
       child: GestureDetector(
-        onTap: () {},
+        onTap: widget.onTap,
         child: Stack(
           alignment: Alignment.topLeft,
           children: [

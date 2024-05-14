@@ -17,6 +17,7 @@ import 'package:almanar_application/features/subscribe/view/screens/choose_subsc
 import 'package:almanar_application/features/subscribe/view/screens/subscription_details_screen.dart';
 import 'package:almanar_application/features/subscribe/view/screens/success_screen.dart';
 import 'package:almanar_application/features/training/view/cubit/training_cubit.dart';
+import 'package:almanar_application/features/training/view/screens/training_day_details.dart';
 import 'package:almanar_application/features/training/view/screens/training_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,6 +31,13 @@ class AppRouter {
       case Routes.onBoardingScreen:
         return MaterialPageRoute(
           builder: (_) => const OnBoardScreens(),
+        );
+      case Routes.trainingDetailsScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider.value(
+            value: getIt<TrainingCubit>(),
+            child: const TrainingDayDetails(),
+          ),
         );
       case Routes.landingScreen:
         return MaterialPageRoute(

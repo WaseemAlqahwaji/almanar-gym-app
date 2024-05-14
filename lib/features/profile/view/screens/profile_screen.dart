@@ -1,11 +1,8 @@
 import 'package:almanar_application/config/helpers/hex_color.dart';
 import 'package:almanar_application/config/theming/text_style.dart';
 import 'package:almanar_application/features/core/view/widgets/back_button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gap/gap.dart';
 
 class ProfileScreen extends StatefulWidget {
