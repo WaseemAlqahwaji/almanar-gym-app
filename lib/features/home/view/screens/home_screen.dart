@@ -2,8 +2,8 @@ import 'package:almanar_application/config/theming/text_style.dart';
 import 'package:almanar_application/config/theming/theme.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,6 +14,23 @@ class HomeScreen extends StatelessWidget {
       padding: EdgeInsets.all(10.0.h),
       child: Column(
         children: [
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "تاريخ نهاية الاشتراك : ",
+                  style: TextStyled.font15WhiteLight,
+                ),
+                Text(
+                  "2024/03/2",
+                  style: TextStyled.font15WhiteLight,
+                ),
+              ],
+            ),
+          ),
+          Gap(20.0.h),
           Expanded(
             child: Container(
               decoration: BoxDecoration(

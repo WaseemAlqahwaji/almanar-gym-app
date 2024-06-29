@@ -78,7 +78,7 @@ class _HomeNotSubscribedScreenState extends State<HomeNotSubscribedScreen> {
       "isVIP": false,
     },
     1: {
-      "imagePath": "assets/images/vip_training_card_image.jpg",
+      "imagePath": "assets/images/subscribe_dialog_image.png",
       "title": "خطة تمارين خاصة",
       "isVIP": true,
     },

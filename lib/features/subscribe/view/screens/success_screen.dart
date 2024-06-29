@@ -1,3 +1,5 @@
+import 'package:almanar_application/config/helpers/extensions.dart';
+import 'package:almanar_application/config/routes/routes.dart';
 import 'package:almanar_application/config/theming/text_style.dart';
 import 'package:almanar_application/config/theming/theme.dart';
 import 'package:almanar_application/features/core/view/widgets/button_item.dart';
@@ -50,7 +52,7 @@ class _SuccessSubscriptionScreenState extends State<SuccessSubscriptionScreen> {
               const Spacer(),
               KButton(
                 onPressed: () {
-          
+                  context.pushNamedAndRemoveUntil(Routes.homeLayoutScreen,predicate: (route) => false,);
                 },
                 lable: "تم",
                 haveArrow: false,

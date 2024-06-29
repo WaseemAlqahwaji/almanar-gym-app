@@ -29,12 +29,14 @@ class _FoodScreenState extends State<FoodScreen> {
               ExpandablePanel(
                 theme: const ExpandableThemeData(
                   iconColor: Colors.white,
-                  tapBodyToCollapse: true
+                  tapBodyToCollapse: true,
+                  headerAlignment: ExpandablePanelHeaderAlignment.center
                 ),
                 header: Text(
                   daysTitle[index]!,
-                  style: TextStyled.font22White600,
+                  style: TextStyled.font16White700,
                 ),
+
                 collapsed: const SizedBox.shrink(),
                 expanded: Text(
                   "Expandable should not be confused with ExpansionPanel. ExpansionPanel, which is a part of Flutter material library, is designed to work only within ExpansionPanelList and cannot be used for making other widgets, for example, expandable Card widgets.",

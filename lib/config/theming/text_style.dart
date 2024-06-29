@@ -39,6 +39,12 @@ class TextStyled {
     fontWeight: FontWeight.bold,
   );
 
+  static TextStyle font15WhiteLight = const TextStyle(
+    color: Colors.white,
+    fontSize: 15,
+    fontWeight: FontWeight.w300,
+  );
+
   static TextStyle font18Black600 = const TextStyle(
     color: Colors.black,
     fontSize: 18,
