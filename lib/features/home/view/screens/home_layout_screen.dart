@@ -24,8 +24,8 @@ class _HomeLayoutState extends State<HomeLayout> {
       appBar: AppBar(
         title: Text(
           appBarTitle[context.read<HomeCubit>().currentIndex],
-          style: TextStyled.font28White400.copyWith(
-            fontSize: 22
+          style: TextStyled.font24White600.copyWith(
+            fontWeight: FontWeight.w400,
           ),
         ),
       ),

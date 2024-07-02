@@ -30,11 +30,11 @@ class _FoodScreenState extends State<FoodScreen> {
                 theme: const ExpandableThemeData(
                   iconColor: Colors.white,
                   tapBodyToCollapse: true,
-                  headerAlignment: ExpandablePanelHeaderAlignment.center
+                  headerAlignment: ExpandablePanelHeaderAlignment.center,
                 ),
                 header: Text(
                   daysTitle[index]!,
-                  style: TextStyled.font16White700,
+                  style: TextStyled.font16White400,
                 ),
 
                 collapsed: const SizedBox.shrink(),

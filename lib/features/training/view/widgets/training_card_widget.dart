@@ -9,12 +9,14 @@ class TrainingCardWidget extends StatefulWidget {
   final String title;
   final int exercisesNumber;
   final String imagePath;
+  final void Function()? onTap;
 
   const TrainingCardWidget({
     super.key,
     required this.imagePath,
     required this.title,
     required this.exercisesNumber,
+    required this.onTap,
   });
 
   @override
@@ -40,7 +42,7 @@ class _TrainingCardWidgetState extends State<TrainingCardWidget> {
       ),
       height: 160.h,
       child: GestureDetector(
-        onTap: () {},
+        onTap: widget.onTap,
         child: Stack(
           alignment: Alignment.topLeft,
           children: [
@@ -63,12 +65,10 @@ class _TrainingCardWidgetState extends State<TrainingCardWidget> {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(cardBorder),
-                        gradient: LinearGradient(
-                          colors: [
-                            Colors.black87.withOpacity(.4),
-                            Colors.black87.withOpacity(.4),
-                          ]
-                        ),
+                        gradient: LinearGradient(colors: [
+                          Colors.black87.withOpacity(.4),
+                          Colors.black87.withOpacity(.4),
+                        ]),
                       ),
                     )
                   ],
@@ -83,12 +83,8 @@ class _TrainingCardWidgetState extends State<TrainingCardWidget> {
                         padding: EdgeInsetsDirectional.only(
                           start: 10.0.h,
                         ),
-                        child: Text(
-                          widget.title,
-                          style: TextStyled.font24White600.copyWith(
-                            fontSize: 20,
-                          ),
-                        ),
+                        child: Text(widget.title,
+                            style: TextStyled.font16White400),
                       ),
                       Gap(10.0.h),
                       GlassContainer(

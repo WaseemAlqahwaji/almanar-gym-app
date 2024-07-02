@@ -34,14 +34,16 @@ class HomeScreen extends StatelessWidget {
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15.0.r),
-                  color: KTheme.chartBackgroundColor,
-                  boxShadow: [
-                    BoxShadow(
-                        offset: const Offset(1, 1),
-                        color: Colors.black.withOpacity(.6),
-                        blurRadius: 2)
-                  ]),
+                borderRadius: BorderRadius.circular(15.0.r),
+                color: KTheme.chartBackgroundColor,
+                boxShadow: [
+                  BoxShadow(
+                    offset: const Offset(1, 1),
+                    color: Colors.black.withOpacity(.6),
+                    blurRadius: 2,
+                  )
+                ],
+              ),
               padding: const EdgeInsets.all(20.0),
               child: Stack(
                 children: [
