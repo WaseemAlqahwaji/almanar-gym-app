@@ -25,7 +25,7 @@ class AlmanarApp extends StatelessWidget {
         themeMode: ThemeMode.dark,
         theme: KTheme.darkTheme(),
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute: Routes.homeNotSubscribedLayoutScreen,
+        initialRoute: Routes.landingScreen,
         debugShowCheckedModeBanner: false,
         builder: (context, child) => BlocProvider(
           create: (context) {

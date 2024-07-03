@@ -1,5 +1,7 @@
+import 'package:almanar_application/config/di/di.dart';
 import 'package:almanar_application/config/routes/routes.dart';
-import 'package:almanar_application/features/auth/view/cubit/login/login_cubit.dart';
+import 'package:almanar_application/features/auth/logic/login/login_cubit.dart';
+import 'package:almanar_application/features/auth/logic/register/register_cubit.dart';
 import 'package:almanar_application/features/auth/view/screens/auth_layout_screens/auth_layout_screen.dart';
 import 'package:almanar_application/features/auth/view/screens/auth_layout_screens/forget_password_screen.dart';
 import 'package:almanar_application/features/food/view/cubit/food_cubit.dart';
@@ -24,7 +26,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/auth/view/screens/auth_layout_screens/enter_new_password_screen.dart';
-import '../../injection.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -115,8 +116,11 @@ class AppRouter {
           builder: (context) {
             Map<String, bool> isLogin =
                 ModalRoute.of(context)!.settings.arguments as Map<String, bool>;
-            return BlocProvider(
-              create: (context) => getIt<LoginCubit>(),
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider(create: (context) => getIt<LoginCubit>()),
+                BlocProvider(create: (context) => getIt<RegisterCubit>()),
+              ],
               child: AuthLayoutScreen(
                 isLogin: isLogin["isLogin"]!,
               ),

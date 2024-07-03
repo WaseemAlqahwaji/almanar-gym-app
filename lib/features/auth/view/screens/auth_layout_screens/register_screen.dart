@@ -1,14 +1,13 @@
-import 'package:almanar_application/config/helpers/extensions.dart';
+import 'package:almanar_application/features/auth/logic/register/register_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import '../../../../../config/helpers/validation.dart';
-import '../../../../../config/routes/routes.dart';
 import '../../../../../config/theming/text_style.dart';
 import '../../../../core/view/widgets/button_item.dart';
 import '../../../../core/view/widgets/text_form_item.dart';
 
-// TODO : keyboard make widgets go up
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -18,19 +17,6 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController cPasswordController = TextEditingController();
-
-  @override
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    cPasswordController.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +43,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20.0.w),
                       child: Form(
-                        key: formKey,
+                        key: context.read<RegisterCubit>().formKey,
                         child: Column(
                           children: [
                             Align(
@@ -68,7 +54,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                             ),
                             KTextForm(
-                              controller: emailController,
+                              controller:
+                                  context.read<RegisterCubit>().emailController,
                               title: "البريد الالكتروني",
                               validator: (value) {
                                 return TextFormValidation.emailValidation(
@@ -82,7 +69,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 return TextFormValidation.passwordValidation(
                                     value);
                               },
-                              controller: passwordController,
+                              controller: context
+                                  .read<RegisterCubit>()
+                                  .passwordController,
                               title: "كلمة السر",
                               type: TextInputType.visiblePassword,
                             ),
@@ -93,15 +82,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                         value) ==
                                     null) {
                                   return TextFormValidation.passwordCheck(
-                                    password: passwordController.text,
-                                    cPassword: cPasswordController.text,
+                                    password: context
+                                        .read<RegisterCubit>()
+                                        .passwordController
+                                        .text,
+                                    cPassword: context
+                                        .read<RegisterCubit>()
+                                        .cPasswordController
+                                        .text,
                                   );
                                 } else {
                                   return TextFormValidation.passwordValidation(
                                       value);
                                 }
                               },
-                              controller: cPasswordController,
+                              controller: context
+                                  .read<RegisterCubit>()
+                                  .cPasswordController,
                               type: TextInputType.visiblePassword,
                               title: "تأكيد كلمة المرور",
                             ),
@@ -117,13 +114,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         child: KButton(
                           haveArrow: true,
                           onPressed: () {
-                            // if (formKey.currentState!.validate()) {
-                            //   print("gooooood");
-                            // }
-                            context.pushNamedAndRemoveUntil(
-                              Routes.userDetailsLayoutScreen,
-                              predicate: (_) => false,
-                            ); // TODO : it should be replacement
+                            validateSignUp(context);
                           },
                           lable: "متابعة",
                         ),
@@ -137,5 +128,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
         },
       ),
     );
+  }
+
+  void validateSignUp(BuildContext context) {
+    if (context.read<RegisterCubit>().formKey.currentState!.validate()) {
+      context.read<RegisterCubit>().emitRegisterState();
+    }
   }
 }

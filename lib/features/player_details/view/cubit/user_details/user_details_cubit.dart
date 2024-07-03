@@ -4,13 +4,11 @@ import 'package:almanar_application/features/core/domain/enums/practicing_habit.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:injectable/injectable.dart';
 
 part 'user_details_state.dart';
 
 part 'user_details_cubit.freezed.dart';
 
-@singleton
 class UserDetailsCubit extends Cubit<UserDetailsState> {
   UserDetailsCubit() : super(const UserDetailsState.initial());
 
