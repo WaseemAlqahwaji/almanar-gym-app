@@ -61,7 +61,6 @@ class SignupBlocListener extends StatelessWidget {
                 foregroundColor: Colors.white, backgroundColor: Colors.blue, disabledForegroundColor: Colors.grey.withOpacity(0.38),
               ),
               onPressed: () {
-                context.pushNamed(Routes.loginScreen);
               },
               child: const Text('Continue'),
             ),
@@ -83,7 +82,6 @@ class SignupBlocListener extends StatelessWidget {
         ),
         content: Text(
           error,
-          style: TextStyles.font15DarkBlueMedium,
         ),
         actions: [
           TextButton(
@@ -92,7 +90,7 @@ class SignupBlocListener extends StatelessWidget {
             },
             child: Text(
               'Got it',
-              style: TextStyles.font14BlueSemiBold,
+             
             ),
           ),
         ],
