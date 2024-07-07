@@ -10,7 +10,7 @@ RegisterRequsetBody _$RegisterRequsetBodyFromJson(Map<String, dynamic> json) =>
     RegisterRequsetBody(
       email: json['email'] as String,
       password: json['password'] as String,
-      passwordConfirmation: json['passwordConfirmation'] as String,
+      passwordConfirmation: json['password_confirmation'] as String,
     );
 
 Map<String, dynamic> _$RegisterRequsetBodyToJson(
@@ -18,5 +18,5 @@ Map<String, dynamic> _$RegisterRequsetBodyToJson(
     <String, dynamic>{
       'email': instance.email,
       'password': instance.password,
-      'passwordConfirmation': instance.passwordConfirmation,
+      'password_confirmation': instance.passwordConfirmation,
     };

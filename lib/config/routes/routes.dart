@@ -14,5 +14,6 @@ class Routes {
   static const String trainingMusclesScreen = 'trainingMusclesScreen';
   static const String chooseSubscriptionScreen = 'chooseSubscriptionScreen';
   static const String subscriptionDetailsScreen = 'subscriptionDetailsScreen';
+  static const String registerVerificationCodeScreen = 'registerVerificationCodeScreen';
   static const String successSubscriptionScreen = 'successSubscriptionScreen';
 }

@@ -1,5 +1,3 @@
-import 'package:almanar_application/config/theming/text_style.dart';
-import 'package:almanar_application/config/theming/theme.dart';
 import 'package:almanar_application/features/core/view/widgets/back_button.dart';
 import 'package:almanar_application/features/core/view/widgets/button_item.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
@@ -8,15 +6,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:gap/gap.dart';
 
+import '../../../../config/theming/text_style.dart';
+import '../../../../config/theming/theme.dart';
 
-class VerificationCodeScreen extends StatefulWidget {
-  const VerificationCodeScreen({super.key});
+class RegisterVerificationCodeScreen extends StatefulWidget {
+  const RegisterVerificationCodeScreen({super.key});
 
   @override
-  State<VerificationCodeScreen> createState() => _VerificationCodeScreen();
+  State<RegisterVerificationCodeScreen> createState() => _RegisterVerificationCodeScreen();
 }
 
-class _VerificationCodeScreen extends State<VerificationCodeScreen> {
+class _RegisterVerificationCodeScreen extends State<RegisterVerificationCodeScreen> {
   String? verificationValue;
   bool verificationIsNotComplete = false;
 

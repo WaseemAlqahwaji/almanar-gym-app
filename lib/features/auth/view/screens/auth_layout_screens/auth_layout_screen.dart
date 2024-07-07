@@ -1,10 +1,10 @@
-import 'package:almanar_application/features/auth/view/screens/auth_layout_screens/register_screen.dart';
+import 'package:almanar_application/features/sign_up/view/screens/register_screen.dart';
 import 'package:almanar_application/features/auth/view/widgets/toggle_auth_pages_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
-import 'login_screen.dart';
+import '../../../../login/view/screens/login_screen.dart';
 
 class AuthLayoutScreen extends StatefulWidget {
   final bool isLogin;

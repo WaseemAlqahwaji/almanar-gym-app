@@ -90,11 +90,3 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
     );
   }
 }
-
-/*
-*
-* SizedBox(
-          height: context.getBodyHeight(),
-          child:
-        ),
-* */

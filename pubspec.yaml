@@ -73,7 +73,11 @@ dependencies:
   # A powerful HTTP networking package, supports Interceptors, Aborting and canceling a request, Custom adapters, Transformers, etc.
   dio: ^5.4.3+1
 
+  # retrofit.dart is an dio client generator using source_gen and inspired by Chopper and Retrofit.
   retrofit: ^4.1.0
+
+  # A collection of loading indicators animated with flutter. Heavily inspired by @tobiasahlin's SpinKit.
+  flutter_spinkit: ^5.2.1
 
 
 

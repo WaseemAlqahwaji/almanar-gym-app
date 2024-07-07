@@ -31,7 +31,7 @@ class _SuccessSubscriptionScreenState extends State<SuccessSubscriptionScreen> {
                   Checkbox(
                     value: true,
                     onChanged: null,
-                    fillColor: MaterialStateProperty.all(KTheme.mainColor),
+                    fillColor: WidgetStateProperty.all(KTheme.mainColor),
                   ),
                   Expanded(
                     child: Text(

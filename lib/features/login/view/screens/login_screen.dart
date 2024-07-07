@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../../config/helpers/validation.dart';
-import '../../../../../config/routes/routes.dart';
-import '../../../../../config/theming/text_style.dart';
-import '../../../../core/view/widgets/text_form_item.dart';
+import '../../../../config/helpers/validation.dart';
+import '../../../../config/routes/routes.dart';
+import '../../../../config/theming/text_style.dart';
+import '../../../core/view/widgets/text_form_item.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

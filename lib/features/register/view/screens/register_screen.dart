@@ -1,13 +1,13 @@
-import 'package:almanar_application/features/auth/logic/register/register_cubit.dart';
+import 'package:almanar_application/features/sign_up/logic/register_cubit.dart';
+import 'package:almanar_application/features/sign_up/view/widgets/bloc_listner_register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import '../../../../../config/helpers/validation.dart';
-import '../../../../../config/theming/text_style.dart';
-import '../../../../core/view/widgets/button_item.dart';
-import '../../../../core/view/widgets/text_form_item.dart';
-
+import '../../../../config/helpers/validation.dart';
+import '../../../../config/theming/text_style.dart';
+import '../../../core/view/widgets/button_item.dart';
+import '../../../core/view/widgets/text_form_item.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -19,6 +19,10 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
+    context.read<RegisterCubit>().emailController.text =
+        "samirkah1118@gmail.com";
+    context.read<RegisterCubit>().passwordController.text = "tt123456";
+    context.read<RegisterCubit>().cPasswordController.text = "tt123456";
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: LayoutBuilder(
@@ -31,9 +35,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: IntrinsicHeight(
                 child: Column(
                   children: [
+                    const SignupBlocListener(),
                     ClipRRect(
                       borderRadius: BorderRadius.only(
-                          bottomRight: Radius.circular(100.0.r)),
+                        bottomRight: Radius.circular(100.0.r),
+                      ),
                       child: Image.asset(
                         "assets/images/register_guy.png",
                         fit: BoxFit.fill,
@@ -59,7 +65,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               title: "البريد الالكتروني",
                               validator: (value) {
                                 return TextFormValidation.emailValidation(
-                                    value);
+                                  value,
+                                );
                               },
                               type: TextInputType.emailAddress,
                             ),
@@ -67,7 +74,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             KTextForm(
                               validator: (value) {
                                 return TextFormValidation.passwordValidation(
-                                    value);
+                                  value,
+                                );
                               },
                               controller: context
                                   .read<RegisterCubit>()
@@ -78,23 +86,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             Gap(20.0.h),
                             KTextForm(
                               validator: (value) {
-                                if (TextFormValidation.passwordValidation(
-                                        value) ==
-                                    null) {
-                                  return TextFormValidation.passwordCheck(
-                                    password: context
-                                        .read<RegisterCubit>()
-                                        .passwordController
-                                        .text,
-                                    cPassword: context
-                                        .read<RegisterCubit>()
-                                        .cPasswordController
-                                        .text,
-                                  );
-                                } else {
-                                  return TextFormValidation.passwordValidation(
-                                      value);
-                                }
+                                return confirm(value);
                               },
                               controller: context
                                   .read<RegisterCubit>()
@@ -105,6 +97,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ],
                         ),
                       ),
+                    ),
+                    const Gap(10.0),
+                    KButton(
+                      onPressed: () {
+                        
+                      },
+                      lable: "kdgk",
+                      haveArrow: false,
                     ),
                     const Spacer(),
                     Padding(
@@ -130,9 +130,41 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
+  Future<dynamic> errorDialog(BuildContext context, String error) {
+    return showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        child: Padding(
+          padding: EdgeInsets.all(30.0.h),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                error,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   void validateSignUp(BuildContext context) {
     if (context.read<RegisterCubit>().formKey.currentState!.validate()) {
       context.read<RegisterCubit>().emitRegisterState();
+    }
+  }
+
+  String? confirm(String? value) {
+    if (TextFormValidation.passwordValidation(value) == null) {
+      return TextFormValidation.passwordCheck(
+        password: context.read<RegisterCubit>().passwordController.text,
+        cPassword: context.read<RegisterCubit>().cPasswordController.text,
+      );
+    } else {
+      return TextFormValidation.passwordValidation(
+        value,
+      );
     }
   }
 }

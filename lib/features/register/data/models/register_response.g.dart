@@ -17,7 +17,7 @@ Map<String, dynamic> _$RegisterResponseToJson(RegisterResponse instance) =>
     };
 
 User _$UserFromJson(Map<String, dynamic> json) => User(
-      json['is_confirmed'] as bool,
+      (json['is_confirmed'] as num).toInt(),
       email: json['email'] as String,
       profile: UserProfile.fromJson(json['profile'] as Map<String, dynamic>),
     );

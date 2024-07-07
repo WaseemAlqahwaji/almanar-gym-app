@@ -17,7 +17,7 @@ class User {
   final String email;
   final UserProfile profile;
   @JsonKey(name: "is_confirmed")
-  final bool isConfirmed;
+  final int isConfirmed;
 
   const User(
     this.isConfirmed, {

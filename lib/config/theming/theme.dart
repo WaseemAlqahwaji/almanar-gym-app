@@ -11,7 +11,7 @@ class KTheme {
 
   static ThemeData darkTheme() => ThemeData(
         checkboxTheme: CheckboxThemeData(
-          checkColor: MaterialStateProperty.all(backgroundColor),
+          checkColor: WidgetStateProperty.all(backgroundColor),
         ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: HexColor("#2C2C2E"),

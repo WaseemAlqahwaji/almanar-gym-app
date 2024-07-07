@@ -5,6 +5,7 @@ part 'register_requset_body.g.dart';
 class RegisterRequsetBody {
   final String email;
   final String password;
+  @JsonKey(name: "password_confirmation")
   final String passwordConfirmation;
 
   RegisterRequsetBody({
@@ -12,8 +13,6 @@ class RegisterRequsetBody {
     required this.password,
     required this.passwordConfirmation,
   });
-
-
-  factory RegisterRequsetBody.fromJson(Map<String, dynamic> json) =>
-      _$RegisterRequsetBodyFromJson(json);
+      
+  Map<String, dynamic> toJson() => _$RegisterRequsetBodyToJson(this);
 }
