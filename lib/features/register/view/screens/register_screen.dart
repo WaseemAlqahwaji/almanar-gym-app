@@ -1,6 +1,3 @@
-import 'package:almanar_application/config/helpers/extensions.dart';
-import 'package:almanar_application/config/helpers/shared_pref.dart';
-import 'package:almanar_application/config/routes/routes.dart';
 import 'package:almanar_application/features/register/logic/register_cubit.dart';
 import 'package:almanar_application/features/register/view/widgets/bloc_listner_register.dart';
 import 'package:flutter/material.dart';
@@ -115,7 +112,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         child: KButton(
                           haveArrow: true,
                           onPressed: () {
-                             validateSignUp(context);
+                            validateSignUp(context);
                             // context.pushNamed(Routes.registerVerificationCodeScreen);
                           },
                           lable: "متابعة",

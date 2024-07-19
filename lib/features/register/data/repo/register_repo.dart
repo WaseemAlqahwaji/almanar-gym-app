@@ -2,13 +2,13 @@ import 'package:almanar_application/config/networking/api_error_handler.dart';
 import 'package:almanar_application/config/networking/api_result.dart';
 import 'package:almanar_application/config/networking/api_service.dart';
 import 'package:almanar_application/features/register/data/models/register_requset_body.dart';
-import 'package:almanar_application/features/register/data/models/register_response.dart';
+import 'package:almanar_application/features/core/data/models/user.dart';
 import 'package:almanar_application/features/register/data/models/verify_request_body.dart';
 
 class RegisterRepo {
   final ApiService _apiService;
   RegisterRepo(this._apiService);
-  Future<ApiResult<RegisterResponse>> register(
+  Future<ApiResult<User>> register(
       RegisterRequsetBody registerRequestBody) async {
     try {
       final response = await _apiService.register(registerRequestBody);

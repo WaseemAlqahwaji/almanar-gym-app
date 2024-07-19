@@ -1,30 +1,28 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'register_response.dart';
+part of 'user.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-RegisterResponse _$RegisterResponseFromJson(Map<String, dynamic> json) =>
-    RegisterResponse(
+User _$UserFromJson(Map<String, dynamic> json) => User(
       token: json['token'] as String,
-      user: User.fromJson(json['user'] as Map<String, dynamic>),
+      user: UserData.fromJson(json['user'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$RegisterResponseToJson(RegisterResponse instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'user': instance.user,
       'token': instance.token,
     };
 
-User _$UserFromJson(Map<String, dynamic> json) => User(
+UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       (json['is_confirmed'] as num).toInt(),
       email: json['email'] as String,
       profile: UserProfile.fromJson(json['profile'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
+Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
       'email': instance.email,
       'profile': instance.profile,
       'is_confirmed': instance.isConfirmed,

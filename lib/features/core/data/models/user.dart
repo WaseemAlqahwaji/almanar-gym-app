@@ -1,35 +1,35 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'register_response.g.dart';
+part 'user.g.dart';
 
 @JsonSerializable()
-class RegisterResponse {
-  final User user;
+class User {
+  final UserData user;
   final String token;
 
-  RegisterResponse({
+  User({
     required this.token,
     required this.user,
   });
 
-  factory RegisterResponse.fromJson(Map<String, dynamic> json) =>
-      _$RegisterResponseFromJson(json);
+  factory User.fromJson(Map<String, dynamic> json) =>
+      _$UserFromJson(json);
 }
 
 @JsonSerializable()
-class User {
+class UserData {
   final String email;
   final UserProfile profile;
   @JsonKey(name: "is_confirmed")
   final int isConfirmed;
 
-  const User(
+  const UserData(
     this.isConfirmed, {
     required this.email,
     required this.profile,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+  factory UserData.fromJson(Map<String, dynamic> json) => _$UserDataFromJson(json);
 }
 
 @JsonSerializable()

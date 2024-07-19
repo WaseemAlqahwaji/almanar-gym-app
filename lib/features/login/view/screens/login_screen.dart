@@ -1,6 +1,9 @@
 import 'package:almanar_application/config/helpers/extensions.dart';
 import 'package:almanar_application/features/core/view/widgets/button_item.dart';
+import 'package:almanar_application/features/login/logic/login_cubit.dart';
+import 'package:almanar_application/features/login/view/widgets/login_bloc_listner.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
@@ -17,19 +20,17 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+
 
   @override
   void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    context.read<LoginCubit>().emailController.text = "waseemalqahwaji123@gmail.com";
+    context.read<LoginCubit>().passwordController.text = "tt123456";
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: CustomScrollView(
@@ -38,6 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
             hasScrollBody: false,
             child: Column(
               children: [
+                const LoginBlocListner(),
                 ClipRRect(
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(100.0.r),
@@ -51,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.0.w),
                   child: Form(
-                    key: formKey,
+                    key: context.read<LoginCubit>().formKey,
                     child: Column(
                       children: [
                         Align(
@@ -62,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         KTextForm(
-                          controller: emailController,
+                          controller: context.read<LoginCubit>().emailController,
                           title: "البريد الالكتروني",
                           type: TextInputType.emailAddress,
                           validator: (value) {
@@ -74,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           validator: (value) {
                             return TextFormValidation.passwordValidation(value);
                           },
-                          controller: passwordController,
+                          controller: context.read<LoginCubit>().passwordController,
                           title: "كلمة السر",
                           type: TextInputType.visiblePassword,
                         ),
@@ -106,9 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: KButton(
                       haveArrow: true,
                       onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                         
-                        }
+                        login(context);
                       },
                       lable: "تسجيل دخول",
                     ),
@@ -120,5 +120,11 @@ class _LoginScreenState extends State<LoginScreen> {
         ],
       ),
     );
+  }
+
+  void login(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().emitLoginState();
+    }
   }
 }
