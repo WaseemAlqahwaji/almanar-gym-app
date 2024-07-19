@@ -1,6 +1,8 @@
 class ApiConstants {
-  static const String baseUrl = "https://almanar-gym.com/public/api/"; 
+  static const String baseUrl = "https://almanar-gym.com/api/"; 
   static const String register = "register"; 
+  static const String login = "login"; 
+  static const String verifyAccount = "verify-account";
 }
 
 class ApiErrors {

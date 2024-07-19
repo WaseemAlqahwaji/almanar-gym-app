@@ -19,50 +19,71 @@ mixin _$RegisterState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() registerLoadaing,
+    required TResult Function() registerLoading,
     required TResult Function(T data) registerSuccess,
     required TResult Function(String error) registerFailure,
+    required TResult Function() verifiedAccountLoading,
+    required TResult Function(T data) verifiedAccountSuccess,
+    required TResult Function(String error) verifiedAccountFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? registerLoadaing,
+    TResult? Function()? registerLoading,
     TResult? Function(T data)? registerSuccess,
     TResult? Function(String error)? registerFailure,
+    TResult? Function()? verifiedAccountLoading,
+    TResult? Function(T data)? verifiedAccountSuccess,
+    TResult? Function(String error)? verifiedAccountFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? registerLoadaing,
+    TResult Function()? registerLoading,
     TResult Function(T data)? registerSuccess,
     TResult Function(String error)? registerFailure,
+    TResult Function()? verifiedAccountLoading,
+    TResult Function(T data)? verifiedAccountSuccess,
+    TResult Function(String error)? verifiedAccountFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(RegisterLoadaing<T> value) registerLoadaing,
+    required TResult Function(RegisterLoadaing<T> value) registerLoading,
     required TResult Function(RegisterSuccess<T> value) registerSuccess,
     required TResult Function(RegisterFailure<T> value) registerFailure,
+    required TResult Function(VerifiedAccountLoading<T> value)
+        verifiedAccountLoading,
+    required TResult Function(VerifiedAccountSuccess<T> value)
+        verifiedAccountSuccess,
+    required TResult Function(VerifiedAccountFailure<T> value)
+        verifiedAccountFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(RegisterLoadaing<T> value)? registerLoadaing,
+    TResult? Function(RegisterLoadaing<T> value)? registerLoading,
     TResult? Function(RegisterSuccess<T> value)? registerSuccess,
     TResult? Function(RegisterFailure<T> value)? registerFailure,
+    TResult? Function(VerifiedAccountLoading<T> value)? verifiedAccountLoading,
+    TResult? Function(VerifiedAccountSuccess<T> value)? verifiedAccountSuccess,
+    TResult? Function(VerifiedAccountFailure<T> value)? verifiedAccountFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(RegisterLoadaing<T> value)? registerLoadaing,
+    TResult Function(RegisterLoadaing<T> value)? registerLoading,
     TResult Function(RegisterSuccess<T> value)? registerSuccess,
     TResult Function(RegisterFailure<T> value)? registerFailure,
+    TResult Function(VerifiedAccountLoading<T> value)? verifiedAccountLoading,
+    TResult Function(VerifiedAccountSuccess<T> value)? verifiedAccountSuccess,
+    TResult Function(VerifiedAccountFailure<T> value)? verifiedAccountFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -125,9 +146,12 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() registerLoadaing,
+    required TResult Function() registerLoading,
     required TResult Function(T data) registerSuccess,
     required TResult Function(String error) registerFailure,
+    required TResult Function() verifiedAccountLoading,
+    required TResult Function(T data) verifiedAccountSuccess,
+    required TResult Function(String error) verifiedAccountFailure,
   }) {
     return initial();
   }
@@ -136,9 +160,12 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? registerLoadaing,
+    TResult? Function()? registerLoading,
     TResult? Function(T data)? registerSuccess,
     TResult? Function(String error)? registerFailure,
+    TResult? Function()? verifiedAccountLoading,
+    TResult? Function(T data)? verifiedAccountSuccess,
+    TResult? Function(String error)? verifiedAccountFailure,
   }) {
     return initial?.call();
   }
@@ -147,9 +174,12 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? registerLoadaing,
+    TResult Function()? registerLoading,
     TResult Function(T data)? registerSuccess,
     TResult Function(String error)? registerFailure,
+    TResult Function()? verifiedAccountLoading,
+    TResult Function(T data)? verifiedAccountSuccess,
+    TResult Function(String error)? verifiedAccountFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -162,9 +192,15 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(RegisterLoadaing<T> value) registerLoadaing,
+    required TResult Function(RegisterLoadaing<T> value) registerLoading,
     required TResult Function(RegisterSuccess<T> value) registerSuccess,
     required TResult Function(RegisterFailure<T> value) registerFailure,
+    required TResult Function(VerifiedAccountLoading<T> value)
+        verifiedAccountLoading,
+    required TResult Function(VerifiedAccountSuccess<T> value)
+        verifiedAccountSuccess,
+    required TResult Function(VerifiedAccountFailure<T> value)
+        verifiedAccountFailure,
   }) {
     return initial(this);
   }
@@ -173,9 +209,12 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(RegisterLoadaing<T> value)? registerLoadaing,
+    TResult? Function(RegisterLoadaing<T> value)? registerLoading,
     TResult? Function(RegisterSuccess<T> value)? registerSuccess,
     TResult? Function(RegisterFailure<T> value)? registerFailure,
+    TResult? Function(VerifiedAccountLoading<T> value)? verifiedAccountLoading,
+    TResult? Function(VerifiedAccountSuccess<T> value)? verifiedAccountSuccess,
+    TResult? Function(VerifiedAccountFailure<T> value)? verifiedAccountFailure,
   }) {
     return initial?.call(this);
   }
@@ -184,9 +223,12 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(RegisterLoadaing<T> value)? registerLoadaing,
+    TResult Function(RegisterLoadaing<T> value)? registerLoading,
     TResult Function(RegisterSuccess<T> value)? registerSuccess,
     TResult Function(RegisterFailure<T> value)? registerFailure,
+    TResult Function(VerifiedAccountLoading<T> value)? verifiedAccountLoading,
+    TResult Function(VerifiedAccountSuccess<T> value)? verifiedAccountSuccess,
+    TResult Function(VerifiedAccountFailure<T> value)? verifiedAccountFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -223,7 +265,7 @@ class _$RegisterLoadaingImpl<T> implements RegisterLoadaing<T> {
 
   @override
   String toString() {
-    return 'RegisterState<$T>.registerLoadaing()';
+    return 'RegisterState<$T>.registerLoading()';
   }
 
   @override
@@ -240,35 +282,44 @@ class _$RegisterLoadaingImpl<T> implements RegisterLoadaing<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() registerLoadaing,
+    required TResult Function() registerLoading,
     required TResult Function(T data) registerSuccess,
     required TResult Function(String error) registerFailure,
+    required TResult Function() verifiedAccountLoading,
+    required TResult Function(T data) verifiedAccountSuccess,
+    required TResult Function(String error) verifiedAccountFailure,
   }) {
-    return registerLoadaing();
+    return registerLoading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? registerLoadaing,
+    TResult? Function()? registerLoading,
     TResult? Function(T data)? registerSuccess,
     TResult? Function(String error)? registerFailure,
+    TResult? Function()? verifiedAccountLoading,
+    TResult? Function(T data)? verifiedAccountSuccess,
+    TResult? Function(String error)? verifiedAccountFailure,
   }) {
-    return registerLoadaing?.call();
+    return registerLoading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? registerLoadaing,
+    TResult Function()? registerLoading,
     TResult Function(T data)? registerSuccess,
     TResult Function(String error)? registerFailure,
+    TResult Function()? verifiedAccountLoading,
+    TResult Function(T data)? verifiedAccountSuccess,
+    TResult Function(String error)? verifiedAccountFailure,
     required TResult orElse(),
   }) {
-    if (registerLoadaing != null) {
-      return registerLoadaing();
+    if (registerLoading != null) {
+      return registerLoading();
     }
     return orElse();
   }
@@ -277,35 +328,47 @@ class _$RegisterLoadaingImpl<T> implements RegisterLoadaing<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(RegisterLoadaing<T> value) registerLoadaing,
+    required TResult Function(RegisterLoadaing<T> value) registerLoading,
     required TResult Function(RegisterSuccess<T> value) registerSuccess,
     required TResult Function(RegisterFailure<T> value) registerFailure,
+    required TResult Function(VerifiedAccountLoading<T> value)
+        verifiedAccountLoading,
+    required TResult Function(VerifiedAccountSuccess<T> value)
+        verifiedAccountSuccess,
+    required TResult Function(VerifiedAccountFailure<T> value)
+        verifiedAccountFailure,
   }) {
-    return registerLoadaing(this);
+    return registerLoading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(RegisterLoadaing<T> value)? registerLoadaing,
+    TResult? Function(RegisterLoadaing<T> value)? registerLoading,
     TResult? Function(RegisterSuccess<T> value)? registerSuccess,
     TResult? Function(RegisterFailure<T> value)? registerFailure,
+    TResult? Function(VerifiedAccountLoading<T> value)? verifiedAccountLoading,
+    TResult? Function(VerifiedAccountSuccess<T> value)? verifiedAccountSuccess,
+    TResult? Function(VerifiedAccountFailure<T> value)? verifiedAccountFailure,
   }) {
-    return registerLoadaing?.call(this);
+    return registerLoading?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(RegisterLoadaing<T> value)? registerLoadaing,
+    TResult Function(RegisterLoadaing<T> value)? registerLoading,
     TResult Function(RegisterSuccess<T> value)? registerSuccess,
     TResult Function(RegisterFailure<T> value)? registerFailure,
+    TResult Function(VerifiedAccountLoading<T> value)? verifiedAccountLoading,
+    TResult Function(VerifiedAccountSuccess<T> value)? verifiedAccountSuccess,
+    TResult Function(VerifiedAccountFailure<T> value)? verifiedAccountFailure,
     required TResult orElse(),
   }) {
-    if (registerLoadaing != null) {
-      return registerLoadaing(this);
+    if (registerLoading != null) {
+      return registerLoading(this);
     }
     return orElse();
   }
@@ -382,9 +445,12 @@ class _$RegisterSuccessImpl<T> implements RegisterSuccess<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() registerLoadaing,
+    required TResult Function() registerLoading,
     required TResult Function(T data) registerSuccess,
     required TResult Function(String error) registerFailure,
+    required TResult Function() verifiedAccountLoading,
+    required TResult Function(T data) verifiedAccountSuccess,
+    required TResult Function(String error) verifiedAccountFailure,
   }) {
     return registerSuccess(data);
   }
@@ -393,9 +459,12 @@ class _$RegisterSuccessImpl<T> implements RegisterSuccess<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? registerLoadaing,
+    TResult? Function()? registerLoading,
     TResult? Function(T data)? registerSuccess,
     TResult? Function(String error)? registerFailure,
+    TResult? Function()? verifiedAccountLoading,
+    TResult? Function(T data)? verifiedAccountSuccess,
+    TResult? Function(String error)? verifiedAccountFailure,
   }) {
     return registerSuccess?.call(data);
   }
@@ -404,9 +473,12 @@ class _$RegisterSuccessImpl<T> implements RegisterSuccess<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? registerLoadaing,
+    TResult Function()? registerLoading,
     TResult Function(T data)? registerSuccess,
     TResult Function(String error)? registerFailure,
+    TResult Function()? verifiedAccountLoading,
+    TResult Function(T data)? verifiedAccountSuccess,
+    TResult Function(String error)? verifiedAccountFailure,
     required TResult orElse(),
   }) {
     if (registerSuccess != null) {
@@ -419,9 +491,15 @@ class _$RegisterSuccessImpl<T> implements RegisterSuccess<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(RegisterLoadaing<T> value) registerLoadaing,
+    required TResult Function(RegisterLoadaing<T> value) registerLoading,
     required TResult Function(RegisterSuccess<T> value) registerSuccess,
     required TResult Function(RegisterFailure<T> value) registerFailure,
+    required TResult Function(VerifiedAccountLoading<T> value)
+        verifiedAccountLoading,
+    required TResult Function(VerifiedAccountSuccess<T> value)
+        verifiedAccountSuccess,
+    required TResult Function(VerifiedAccountFailure<T> value)
+        verifiedAccountFailure,
   }) {
     return registerSuccess(this);
   }
@@ -430,9 +508,12 @@ class _$RegisterSuccessImpl<T> implements RegisterSuccess<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(RegisterLoadaing<T> value)? registerLoadaing,
+    TResult? Function(RegisterLoadaing<T> value)? registerLoading,
     TResult? Function(RegisterSuccess<T> value)? registerSuccess,
     TResult? Function(RegisterFailure<T> value)? registerFailure,
+    TResult? Function(VerifiedAccountLoading<T> value)? verifiedAccountLoading,
+    TResult? Function(VerifiedAccountSuccess<T> value)? verifiedAccountSuccess,
+    TResult? Function(VerifiedAccountFailure<T> value)? verifiedAccountFailure,
   }) {
     return registerSuccess?.call(this);
   }
@@ -441,9 +522,12 @@ class _$RegisterSuccessImpl<T> implements RegisterSuccess<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(RegisterLoadaing<T> value)? registerLoadaing,
+    TResult Function(RegisterLoadaing<T> value)? registerLoading,
     TResult Function(RegisterSuccess<T> value)? registerSuccess,
     TResult Function(RegisterFailure<T> value)? registerFailure,
+    TResult Function(VerifiedAccountLoading<T> value)? verifiedAccountLoading,
+    TResult Function(VerifiedAccountSuccess<T> value)? verifiedAccountSuccess,
+    TResult Function(VerifiedAccountFailure<T> value)? verifiedAccountFailure,
     required TResult orElse(),
   }) {
     if (registerSuccess != null) {
@@ -528,9 +612,12 @@ class _$RegisterFailureImpl<T> implements RegisterFailure<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() registerLoadaing,
+    required TResult Function() registerLoading,
     required TResult Function(T data) registerSuccess,
     required TResult Function(String error) registerFailure,
+    required TResult Function() verifiedAccountLoading,
+    required TResult Function(T data) verifiedAccountSuccess,
+    required TResult Function(String error) verifiedAccountFailure,
   }) {
     return registerFailure(error);
   }
@@ -539,9 +626,12 @@ class _$RegisterFailureImpl<T> implements RegisterFailure<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? registerLoadaing,
+    TResult? Function()? registerLoading,
     TResult? Function(T data)? registerSuccess,
     TResult? Function(String error)? registerFailure,
+    TResult? Function()? verifiedAccountLoading,
+    TResult? Function(T data)? verifiedAccountSuccess,
+    TResult? Function(String error)? verifiedAccountFailure,
   }) {
     return registerFailure?.call(error);
   }
@@ -550,9 +640,12 @@ class _$RegisterFailureImpl<T> implements RegisterFailure<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? registerLoadaing,
+    TResult Function()? registerLoading,
     TResult Function(T data)? registerSuccess,
     TResult Function(String error)? registerFailure,
+    TResult Function()? verifiedAccountLoading,
+    TResult Function(T data)? verifiedAccountSuccess,
+    TResult Function(String error)? verifiedAccountFailure,
     required TResult orElse(),
   }) {
     if (registerFailure != null) {
@@ -565,9 +658,15 @@ class _$RegisterFailureImpl<T> implements RegisterFailure<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(RegisterLoadaing<T> value) registerLoadaing,
+    required TResult Function(RegisterLoadaing<T> value) registerLoading,
     required TResult Function(RegisterSuccess<T> value) registerSuccess,
     required TResult Function(RegisterFailure<T> value) registerFailure,
+    required TResult Function(VerifiedAccountLoading<T> value)
+        verifiedAccountLoading,
+    required TResult Function(VerifiedAccountSuccess<T> value)
+        verifiedAccountSuccess,
+    required TResult Function(VerifiedAccountFailure<T> value)
+        verifiedAccountFailure,
   }) {
     return registerFailure(this);
   }
@@ -576,9 +675,12 @@ class _$RegisterFailureImpl<T> implements RegisterFailure<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(RegisterLoadaing<T> value)? registerLoadaing,
+    TResult? Function(RegisterLoadaing<T> value)? registerLoading,
     TResult? Function(RegisterSuccess<T> value)? registerSuccess,
     TResult? Function(RegisterFailure<T> value)? registerFailure,
+    TResult? Function(VerifiedAccountLoading<T> value)? verifiedAccountLoading,
+    TResult? Function(VerifiedAccountSuccess<T> value)? verifiedAccountSuccess,
+    TResult? Function(VerifiedAccountFailure<T> value)? verifiedAccountFailure,
   }) {
     return registerFailure?.call(this);
   }
@@ -587,9 +689,12 @@ class _$RegisterFailureImpl<T> implements RegisterFailure<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(RegisterLoadaing<T> value)? registerLoadaing,
+    TResult Function(RegisterLoadaing<T> value)? registerLoading,
     TResult Function(RegisterSuccess<T> value)? registerSuccess,
     TResult Function(RegisterFailure<T> value)? registerFailure,
+    TResult Function(VerifiedAccountLoading<T> value)? verifiedAccountLoading,
+    TResult Function(VerifiedAccountSuccess<T> value)? verifiedAccountSuccess,
+    TResult Function(VerifiedAccountFailure<T> value)? verifiedAccountFailure,
     required TResult orElse(),
   }) {
     if (registerFailure != null) {
@@ -606,4 +711,486 @@ abstract class RegisterFailure<T> implements RegisterState<T> {
   @JsonKey(ignore: true)
   _$$RegisterFailureImplCopyWith<T, _$RegisterFailureImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$VerifiedAccountLoadingImplCopyWith<T, $Res> {
+  factory _$$VerifiedAccountLoadingImplCopyWith(
+          _$VerifiedAccountLoadingImpl<T> value,
+          $Res Function(_$VerifiedAccountLoadingImpl<T>) then) =
+      __$$VerifiedAccountLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$VerifiedAccountLoadingImplCopyWithImpl<T, $Res>
+    extends _$RegisterStateCopyWithImpl<T, $Res,
+        _$VerifiedAccountLoadingImpl<T>>
+    implements _$$VerifiedAccountLoadingImplCopyWith<T, $Res> {
+  __$$VerifiedAccountLoadingImplCopyWithImpl(
+      _$VerifiedAccountLoadingImpl<T> _value,
+      $Res Function(_$VerifiedAccountLoadingImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$VerifiedAccountLoadingImpl<T> implements VerifiedAccountLoading<T> {
+  const _$VerifiedAccountLoadingImpl();
+
+  @override
+  String toString() {
+    return 'RegisterState<$T>.verifiedAccountLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$VerifiedAccountLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() registerLoading,
+    required TResult Function(T data) registerSuccess,
+    required TResult Function(String error) registerFailure,
+    required TResult Function() verifiedAccountLoading,
+    required TResult Function(T data) verifiedAccountSuccess,
+    required TResult Function(String error) verifiedAccountFailure,
+  }) {
+    return verifiedAccountLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? registerLoading,
+    TResult? Function(T data)? registerSuccess,
+    TResult? Function(String error)? registerFailure,
+    TResult? Function()? verifiedAccountLoading,
+    TResult? Function(T data)? verifiedAccountSuccess,
+    TResult? Function(String error)? verifiedAccountFailure,
+  }) {
+    return verifiedAccountLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? registerLoading,
+    TResult Function(T data)? registerSuccess,
+    TResult Function(String error)? registerFailure,
+    TResult Function()? verifiedAccountLoading,
+    TResult Function(T data)? verifiedAccountSuccess,
+    TResult Function(String error)? verifiedAccountFailure,
+    required TResult orElse(),
+  }) {
+    if (verifiedAccountLoading != null) {
+      return verifiedAccountLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(RegisterLoadaing<T> value) registerLoading,
+    required TResult Function(RegisterSuccess<T> value) registerSuccess,
+    required TResult Function(RegisterFailure<T> value) registerFailure,
+    required TResult Function(VerifiedAccountLoading<T> value)
+        verifiedAccountLoading,
+    required TResult Function(VerifiedAccountSuccess<T> value)
+        verifiedAccountSuccess,
+    required TResult Function(VerifiedAccountFailure<T> value)
+        verifiedAccountFailure,
+  }) {
+    return verifiedAccountLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(RegisterLoadaing<T> value)? registerLoading,
+    TResult? Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult? Function(RegisterFailure<T> value)? registerFailure,
+    TResult? Function(VerifiedAccountLoading<T> value)? verifiedAccountLoading,
+    TResult? Function(VerifiedAccountSuccess<T> value)? verifiedAccountSuccess,
+    TResult? Function(VerifiedAccountFailure<T> value)? verifiedAccountFailure,
+  }) {
+    return verifiedAccountLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(RegisterLoadaing<T> value)? registerLoading,
+    TResult Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult Function(RegisterFailure<T> value)? registerFailure,
+    TResult Function(VerifiedAccountLoading<T> value)? verifiedAccountLoading,
+    TResult Function(VerifiedAccountSuccess<T> value)? verifiedAccountSuccess,
+    TResult Function(VerifiedAccountFailure<T> value)? verifiedAccountFailure,
+    required TResult orElse(),
+  }) {
+    if (verifiedAccountLoading != null) {
+      return verifiedAccountLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class VerifiedAccountLoading<T> implements RegisterState<T> {
+  const factory VerifiedAccountLoading() = _$VerifiedAccountLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$VerifiedAccountSuccessImplCopyWith<T, $Res> {
+  factory _$$VerifiedAccountSuccessImplCopyWith(
+          _$VerifiedAccountSuccessImpl<T> value,
+          $Res Function(_$VerifiedAccountSuccessImpl<T>) then) =
+      __$$VerifiedAccountSuccessImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T data});
+}
+
+/// @nodoc
+class __$$VerifiedAccountSuccessImplCopyWithImpl<T, $Res>
+    extends _$RegisterStateCopyWithImpl<T, $Res,
+        _$VerifiedAccountSuccessImpl<T>>
+    implements _$$VerifiedAccountSuccessImplCopyWith<T, $Res> {
+  __$$VerifiedAccountSuccessImplCopyWithImpl(
+      _$VerifiedAccountSuccessImpl<T> _value,
+      $Res Function(_$VerifiedAccountSuccessImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$VerifiedAccountSuccessImpl<T>(
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$VerifiedAccountSuccessImpl<T> implements VerifiedAccountSuccess<T> {
+  const _$VerifiedAccountSuccessImpl(this.data);
+
+  @override
+  final T data;
+
+  @override
+  String toString() {
+    return 'RegisterState<$T>.verifiedAccountSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$VerifiedAccountSuccessImpl<T> &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$VerifiedAccountSuccessImplCopyWith<T, _$VerifiedAccountSuccessImpl<T>>
+      get copyWith => __$$VerifiedAccountSuccessImplCopyWithImpl<T,
+          _$VerifiedAccountSuccessImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() registerLoading,
+    required TResult Function(T data) registerSuccess,
+    required TResult Function(String error) registerFailure,
+    required TResult Function() verifiedAccountLoading,
+    required TResult Function(T data) verifiedAccountSuccess,
+    required TResult Function(String error) verifiedAccountFailure,
+  }) {
+    return verifiedAccountSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? registerLoading,
+    TResult? Function(T data)? registerSuccess,
+    TResult? Function(String error)? registerFailure,
+    TResult? Function()? verifiedAccountLoading,
+    TResult? Function(T data)? verifiedAccountSuccess,
+    TResult? Function(String error)? verifiedAccountFailure,
+  }) {
+    return verifiedAccountSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? registerLoading,
+    TResult Function(T data)? registerSuccess,
+    TResult Function(String error)? registerFailure,
+    TResult Function()? verifiedAccountLoading,
+    TResult Function(T data)? verifiedAccountSuccess,
+    TResult Function(String error)? verifiedAccountFailure,
+    required TResult orElse(),
+  }) {
+    if (verifiedAccountSuccess != null) {
+      return verifiedAccountSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(RegisterLoadaing<T> value) registerLoading,
+    required TResult Function(RegisterSuccess<T> value) registerSuccess,
+    required TResult Function(RegisterFailure<T> value) registerFailure,
+    required TResult Function(VerifiedAccountLoading<T> value)
+        verifiedAccountLoading,
+    required TResult Function(VerifiedAccountSuccess<T> value)
+        verifiedAccountSuccess,
+    required TResult Function(VerifiedAccountFailure<T> value)
+        verifiedAccountFailure,
+  }) {
+    return verifiedAccountSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(RegisterLoadaing<T> value)? registerLoading,
+    TResult? Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult? Function(RegisterFailure<T> value)? registerFailure,
+    TResult? Function(VerifiedAccountLoading<T> value)? verifiedAccountLoading,
+    TResult? Function(VerifiedAccountSuccess<T> value)? verifiedAccountSuccess,
+    TResult? Function(VerifiedAccountFailure<T> value)? verifiedAccountFailure,
+  }) {
+    return verifiedAccountSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(RegisterLoadaing<T> value)? registerLoading,
+    TResult Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult Function(RegisterFailure<T> value)? registerFailure,
+    TResult Function(VerifiedAccountLoading<T> value)? verifiedAccountLoading,
+    TResult Function(VerifiedAccountSuccess<T> value)? verifiedAccountSuccess,
+    TResult Function(VerifiedAccountFailure<T> value)? verifiedAccountFailure,
+    required TResult orElse(),
+  }) {
+    if (verifiedAccountSuccess != null) {
+      return verifiedAccountSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class VerifiedAccountSuccess<T> implements RegisterState<T> {
+  const factory VerifiedAccountSuccess(final T data) =
+      _$VerifiedAccountSuccessImpl<T>;
+
+  T get data;
+  @JsonKey(ignore: true)
+  _$$VerifiedAccountSuccessImplCopyWith<T, _$VerifiedAccountSuccessImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$VerifiedAccountFailureImplCopyWith<T, $Res> {
+  factory _$$VerifiedAccountFailureImplCopyWith(
+          _$VerifiedAccountFailureImpl<T> value,
+          $Res Function(_$VerifiedAccountFailureImpl<T>) then) =
+      __$$VerifiedAccountFailureImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$VerifiedAccountFailureImplCopyWithImpl<T, $Res>
+    extends _$RegisterStateCopyWithImpl<T, $Res,
+        _$VerifiedAccountFailureImpl<T>>
+    implements _$$VerifiedAccountFailureImplCopyWith<T, $Res> {
+  __$$VerifiedAccountFailureImplCopyWithImpl(
+      _$VerifiedAccountFailureImpl<T> _value,
+      $Res Function(_$VerifiedAccountFailureImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$VerifiedAccountFailureImpl<T>(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$VerifiedAccountFailureImpl<T> implements VerifiedAccountFailure<T> {
+  const _$VerifiedAccountFailureImpl(this.error);
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'RegisterState<$T>.verifiedAccountFailure(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$VerifiedAccountFailureImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$VerifiedAccountFailureImplCopyWith<T, _$VerifiedAccountFailureImpl<T>>
+      get copyWith => __$$VerifiedAccountFailureImplCopyWithImpl<T,
+          _$VerifiedAccountFailureImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() registerLoading,
+    required TResult Function(T data) registerSuccess,
+    required TResult Function(String error) registerFailure,
+    required TResult Function() verifiedAccountLoading,
+    required TResult Function(T data) verifiedAccountSuccess,
+    required TResult Function(String error) verifiedAccountFailure,
+  }) {
+    return verifiedAccountFailure(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? registerLoading,
+    TResult? Function(T data)? registerSuccess,
+    TResult? Function(String error)? registerFailure,
+    TResult? Function()? verifiedAccountLoading,
+    TResult? Function(T data)? verifiedAccountSuccess,
+    TResult? Function(String error)? verifiedAccountFailure,
+  }) {
+    return verifiedAccountFailure?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? registerLoading,
+    TResult Function(T data)? registerSuccess,
+    TResult Function(String error)? registerFailure,
+    TResult Function()? verifiedAccountLoading,
+    TResult Function(T data)? verifiedAccountSuccess,
+    TResult Function(String error)? verifiedAccountFailure,
+    required TResult orElse(),
+  }) {
+    if (verifiedAccountFailure != null) {
+      return verifiedAccountFailure(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(RegisterLoadaing<T> value) registerLoading,
+    required TResult Function(RegisterSuccess<T> value) registerSuccess,
+    required TResult Function(RegisterFailure<T> value) registerFailure,
+    required TResult Function(VerifiedAccountLoading<T> value)
+        verifiedAccountLoading,
+    required TResult Function(VerifiedAccountSuccess<T> value)
+        verifiedAccountSuccess,
+    required TResult Function(VerifiedAccountFailure<T> value)
+        verifiedAccountFailure,
+  }) {
+    return verifiedAccountFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(RegisterLoadaing<T> value)? registerLoading,
+    TResult? Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult? Function(RegisterFailure<T> value)? registerFailure,
+    TResult? Function(VerifiedAccountLoading<T> value)? verifiedAccountLoading,
+    TResult? Function(VerifiedAccountSuccess<T> value)? verifiedAccountSuccess,
+    TResult? Function(VerifiedAccountFailure<T> value)? verifiedAccountFailure,
+  }) {
+    return verifiedAccountFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(RegisterLoadaing<T> value)? registerLoading,
+    TResult Function(RegisterSuccess<T> value)? registerSuccess,
+    TResult Function(RegisterFailure<T> value)? registerFailure,
+    TResult Function(VerifiedAccountLoading<T> value)? verifiedAccountLoading,
+    TResult Function(VerifiedAccountSuccess<T> value)? verifiedAccountSuccess,
+    TResult Function(VerifiedAccountFailure<T> value)? verifiedAccountFailure,
+    required TResult orElse(),
+  }) {
+    if (verifiedAccountFailure != null) {
+      return verifiedAccountFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class VerifiedAccountFailure<T> implements RegisterState<T> {
+  const factory VerifiedAccountFailure(final String error) =
+      _$VerifiedAccountFailureImpl<T>;
+
+  String get error;
+  @JsonKey(ignore: true)
+  _$$VerifiedAccountFailureImplCopyWith<T, _$VerifiedAccountFailureImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

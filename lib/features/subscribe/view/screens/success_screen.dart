@@ -33,6 +33,7 @@ class _SuccessSubscriptionScreenState extends State<SuccessSubscriptionScreen> {
                     onChanged: null,
                     fillColor: WidgetStateProperty.all(KTheme.mainColor),
                   ),
+
                   Expanded(
                     child: Text(
                       "تم ارسال طلبك",

@@ -8,6 +8,8 @@ import 'config/observer/bloc_observer.dart';
 import 'config/routes/app_router.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   Bloc.observer = MyBlocObserver();
   await setupGetIt();
   runApp(AlmanarApp(appRouter: AppRouter()));

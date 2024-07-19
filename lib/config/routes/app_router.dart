@@ -2,7 +2,7 @@ import 'package:almanar_application/config/di/di.dart';
 import 'package:almanar_application/config/routes/routes.dart';
 import 'package:almanar_application/features/auth/view/screens/auth_layout_screens/verification_code_screen.dart';
 import 'package:almanar_application/features/login/logic/login_cubit.dart';
-import 'package:almanar_application/features/sign_up/logic/register_cubit.dart';
+import 'package:almanar_application/features/register/logic/register_cubit.dart';
 import 'package:almanar_application/features/auth/view/screens/auth_layout_screens/auth_layout_screen.dart';
 import 'package:almanar_application/features/auth/view/screens/auth_layout_screens/forget_password_screen.dart';
 import 'package:almanar_application/features/food/view/cubit/food_cubit.dart';
@@ -12,7 +12,7 @@ import 'package:almanar_application/features/home_not_subscribe/view/cubit/cubit
 import 'package:almanar_application/features/home_not_subscribe/view/screens/layout_screen.dart';
 import 'package:almanar_application/features/player_details/view/cubit/user_details/user_details_cubit.dart';
 import 'package:almanar_application/features/player_details/view/screens/user_details_layout_screens/user_details_layout_screen.dart';
-import 'package:almanar_application/features/sign_up/view/screens/register_verification_code_screen.dart';
+import 'package:almanar_application/features/register/view/screens/register_verification_code_screen.dart';
 import 'package:almanar_application/features/onboard/screens/landing_screen.dart';
 import 'package:almanar_application/features/onboard/screens/onboard_screens.dart';
 import 'package:almanar_application/features/subscribe/view/cubit/subscription_cubit.dart';
@@ -96,7 +96,7 @@ class AppRouter {
       case Routes.homeNotSubscribedLayoutScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => getIt<HomeNotSubscribedCubit>(),
+            create: (context) => HomeNotSubscribedCubit(),
             child: const HomeNotSubscribedLayoutScreen(),
           ),
         );
@@ -116,13 +116,14 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => BlocProvider.value(
             value: getIt<RegisterCubit>(),
-            child: const RegisterVerificationCodeScreen()
+            child: const RegisterVerificationCodeScreen(),
           ),
         );
       case Routes.authLayoutScreen:
         return MaterialPageRoute(
           builder: (context) {
-            Map<String, bool> isLogin = ModalRoute.of(context)!.settings.arguments as Map<String, bool>;
+            Map<String, bool> isLogin =
+                ModalRoute.of(context)!.settings.arguments as Map<String, bool>;
             return MultiBlocProvider(
               providers: [
                 BlocProvider(create: (context) => getIt<LoginCubit>()),

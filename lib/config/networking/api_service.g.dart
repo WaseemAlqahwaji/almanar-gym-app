@@ -13,7 +13,7 @@ class _ApiService implements ApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://almanar-gym.com/public/api/';
+    baseUrl ??= 'https://almanar-gym.com/api/';
   }
 
   final Dio _dio;
@@ -22,12 +22,12 @@ class _ApiService implements ApiService {
 
   @override
   Future<RegisterResponse> register(
-      RegisterRequsetBody registerRequsetBody) async {
+      RegisterRequsetBody registerRequestBody) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(registerRequsetBody.toJson());
+    _data.addAll(registerRequestBody.toJson());
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<RegisterResponse>(Options(
       method: 'POST',
@@ -46,6 +46,33 @@ class _ApiService implements ApiService {
               baseUrl,
             ))));
     final value = RegisterResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<dynamic> verifyAccount(VerifyRequestBody verifyRequestBody) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(verifyRequestBody.toJson());
+    final _result = await _dio.fetch(_setStreamType<dynamic>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'verify-account',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        ))));
+    final value = _result.data;
     return value;
   }
 

@@ -1,10 +1,14 @@
 import 'package:json_annotation/json_annotation.dart';
+
 part 'register_response.g.dart';
 
 @JsonSerializable()
 class RegisterResponse {
   final User user;
+  final String token;
+
   RegisterResponse({
+    required this.token,
     required this.user,
   });
 

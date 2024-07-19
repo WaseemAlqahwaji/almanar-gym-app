@@ -10,7 +10,8 @@ extension Navigation on BuildContext {
         .pushReplacementNamed(routeName, arguments: arguments);
   }
 
-  Future<dynamic> pushNamedAndRemoveUntil(String routeName,{Object? arguments, required RoutePredicate predicate}) {
+  Future<dynamic> pushNamedAndRemoveUntil(String routeName,
+      {Object? arguments, required RoutePredicate predicate}) {
     return Navigator.of(this)
         .pushNamedAndRemoveUntil(routeName, predicate, arguments: arguments);
   }
@@ -19,14 +20,14 @@ extension Navigation on BuildContext {
 }
 
 extension Sizing on BuildContext {
-  double getBodyHeight() {
-    return MediaQuery.of(this).size.height - (MediaQuery.of(this).viewPadding.top);
-  }
+  double getBodyHeight() =>
+      (MediaQuery.of(this).size.height - (MediaQuery.of(this).viewPadding.top));
 
-  double getStatusBarHeight() {
-    return MediaQuery.of(this).viewPadding.top;
-  }
-  double getScreenWidth() {
-    return MediaQuery.of(this).size.width;
-  }
+  double getStatusBarHeight() => MediaQuery.of(this).viewPadding.top;
+
+  double getScreenWidth() => MediaQuery.of(this).size.width;
+}
+
+extension StringExtension on String? {
+  bool isNullOrEmpty() => this == null || this == "";
 }

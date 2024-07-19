@@ -1,5 +1,8 @@
-import 'package:almanar_application/features/sign_up/logic/register_cubit.dart';
-import 'package:almanar_application/features/sign_up/view/widgets/bloc_listner_register.dart';
+import 'package:almanar_application/config/helpers/extensions.dart';
+import 'package:almanar_application/config/helpers/shared_pref.dart';
+import 'package:almanar_application/config/routes/routes.dart';
+import 'package:almanar_application/features/register/logic/register_cubit.dart';
+import 'package:almanar_application/features/register/view/widgets/bloc_listner_register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,7 +23,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     context.read<RegisterCubit>().emailController.text =
-        "samirkah1118@gmail.com";
+        "waseemalqahwaji123@gmail.com";
     context.read<RegisterCubit>().passwordController.text = "tt123456";
     context.read<RegisterCubit>().cPasswordController.text = "tt123456";
     return Scaffold(
@@ -100,9 +103,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     const Gap(10.0),
                     KButton(
-                      onPressed: () {
-                        
-                      },
+                      onPressed: () async {},
                       lable: "kdgk",
                       haveArrow: false,
                     ),
@@ -114,7 +115,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         child: KButton(
                           haveArrow: true,
                           onPressed: () {
-                            validateSignUp(context);
+                             validateSignUp(context);
+                            // context.pushNamed(Routes.registerVerificationCodeScreen);
                           },
                           lable: "متابعة",
                         ),

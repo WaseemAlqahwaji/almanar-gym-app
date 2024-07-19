@@ -79,6 +79,12 @@ dependencies:
   # A collection of loading indicators animated with flutter. Heavily inspired by @tobiasahlin's SpinKit.
   flutter_spinkit: ^5.2.1
 
+  # Flutter plugin for reading and writing simple key-value pairs.
+  shared_preferences: ^2.2.3
+
+  # Flutter Secure Storage provides API to store data in secure storage.
+  flutter_secure_storage: ^9.2.2
+
 
 
 

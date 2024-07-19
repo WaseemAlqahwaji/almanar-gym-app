@@ -8,28 +8,28 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class SignupBlocListener extends StatelessWidget {
-  const SignupBlocListener({super.key});
+class VerificationBlocListener extends StatelessWidget {
+  const VerificationBlocListener({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocListener<RegisterCubit, RegisterState>(
       listenWhen: (previous, current) =>
-          current is RegisterSuccess ||
-          current is RegisterFailure ||
-          current is RegisterLoadaing,
+          current is VerifiedAccountFailure ||
+          current is VerifiedAccountLoading ||
+          current is VerifiedAccountSuccess,
       listener: (context, state) {
+        print("********************* $state *********************");
         state.whenOrNull(
           initial: () {},
-          registerLoading: () {
+          verifiedAccountLoading: () {
             loadingDialog(context);
           },
-          registerSuccess: (signupResponse) {
-            Navigator.pop(context);
-            context.pushNamed(Routes.registerVerificationCodeScreen);
+          verifiedAccountSuccess: (verifyResponse) {
+            context.pushNamed(Routes.homeNotSubscribedLayoutScreen);
           },
-          registerFailure: (error) {
-            Navigator.pop(context);
+          verifiedAccountFailure: (error) {
+
             errorDialog(
               context,
               errorMessage: error,

@@ -1,7 +1,10 @@
 import 'package:almanar_application/features/core/view/widgets/back_button.dart';
 import 'package:almanar_application/features/core/view/widgets/button_item.dart';
+import 'package:almanar_application/features/register/logic/register_cubit.dart';
+import 'package:almanar_application/features/register/view/widgets/verification_register_bloc_listner.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:gap/gap.dart';
@@ -13,12 +16,13 @@ class RegisterVerificationCodeScreen extends StatefulWidget {
   const RegisterVerificationCodeScreen({super.key});
 
   @override
-  State<RegisterVerificationCodeScreen> createState() => _RegisterVerificationCodeScreen();
+  State<RegisterVerificationCodeScreen> createState() =>
+      _RegisterVerificationCodeScreen();
 }
 
-class _RegisterVerificationCodeScreen extends State<RegisterVerificationCodeScreen> {
-  String? verificationValue;
-  bool verificationIsNotComplete = false;
+class _RegisterVerificationCodeScreen
+    extends State<RegisterVerificationCodeScreen> {
+  bool isUserTyping = true, firstTimeBeforeVerification = true;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +31,7 @@ class _RegisterVerificationCodeScreen extends State<RegisterVerificationCodeScre
         padding: EdgeInsets.all(20.0.h),
         child: Column(
           children: [
+            const VerificationBlocListener(),
             const Align(
               alignment: Alignment.centerRight,
               child: KBackButton(),
@@ -54,6 +59,10 @@ class _RegisterVerificationCodeScreen extends State<RegisterVerificationCodeScre
             Directionality(
               textDirection: TextDirection.ltr,
               child: VerificationCode(
+                onEditing: (isTyping) {
+                  isUserTyping = isTyping;
+                  print(isTyping);
+                },
                 autofocus: true,
                 textStyle: TextStyle(
                   fontWeight: FontWeight.w600,
@@ -62,39 +71,35 @@ class _RegisterVerificationCodeScreen extends State<RegisterVerificationCodeScre
                 underlineColor: KTheme.mainColor,
                 underlineWidth: 1.3,
                 onCompleted: (value) {
-                  verificationValue = value;
+                  context.read<RegisterCubit>().verificationValue = value;
+                  print(context.read<RegisterCubit>().verificationValue);
                   FocusScope.of(context).unfocus();
-                },
-                onEditing: (onEditing) {
-                  if (onEditing) {
-                    verificationValue = null;
-                  }
                 },
                 length: 6,
               ),
             ),
+            Gap(10.0),
+            // KButton(
+            //   onPressed: () {},
+            //   lable: "kdgk",
+            //   haveArrow: false,
+            // ),
             Gap(30.0.h),
             ConditionalBuilder(
-              condition: verificationIsNotComplete,
-              builder: (context) => Align(
+              condition: firstTimeBeforeVerification,
+              builder: (context) => Container(),
+              fallback: (context) => Align(
                 alignment: Alignment.centerRight,
                 child: Text(
                   "يجب أن تكون كل الحقول ممتلئة",
                   style: TextStyled.font16Red400,
                 ),
               ),
-              fallback: (context) => Container(),
             ),
             const Spacer(),
             KButton(
               onPressed: () {
-                if (verificationValue != null) {
-                  // context.pushNamed(Routes.enterNewPasswordScreen);
-                } else {
-                  setState(() {
-                    verificationIsNotComplete = true;
-                  });
-                }
+                onSubmitVerification(context);
               },
               lable: "تأكيد",
               width: double.infinity,
@@ -104,5 +109,15 @@ class _RegisterVerificationCodeScreen extends State<RegisterVerificationCodeScre
         ),
       ),
     );
+  }
+
+  void onSubmitVerification(BuildContext context) {
+    if (isUserTyping) {
+      setState(() {
+        firstTimeBeforeVerification = false;
+      });
+    } else {
+      context.read<RegisterCubit>().emitVerifyAccountState();
+    }
   }
 }
