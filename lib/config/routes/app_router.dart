@@ -1,10 +1,8 @@
 import 'package:almanar_application/config/di/di.dart';
 import 'package:almanar_application/config/routes/routes.dart';
-import 'package:almanar_application/features/auth/view/screens/auth_layout_screens/verification_code_screen.dart';
 import 'package:almanar_application/features/login/logic/login_cubit.dart';
 import 'package:almanar_application/features/register/logic/register_cubit.dart';
 import 'package:almanar_application/features/auth/view/screens/auth_layout_screens/auth_layout_screen.dart';
-import 'package:almanar_application/features/auth/view/screens/auth_layout_screens/forget_password_screen.dart';
 import 'package:almanar_application/features/food/view/cubit/food_cubit.dart';
 import 'package:almanar_application/features/home/view/cubit/home_cubit.dart';
 import 'package:almanar_application/features/home/view/screens/home_layout_screen.dart';
@@ -25,8 +23,9 @@ import 'package:almanar_application/features/training/view/screens/training_musc
 import 'package:almanar_application/features/training/view/screens/training_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../features/auth/view/screens/auth_layout_screens/enter_new_password_screen.dart';
+import '../../features/auth/view/screens/enter_new_password_screen.dart';
+import '../../features/auth/view/screens/forget_password_screen.dart';
+import '../../features/auth/view/screens/verification_code_screen.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {

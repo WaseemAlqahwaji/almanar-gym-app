@@ -1,11 +1,11 @@
-import 'package:almanar_application/features/auth/view/widgets/list_wheel_widget.dart';
+import 'package:almanar_application/features/player_details/view/widgets/list_wheel_widget.dart';
 import 'package:almanar_application/features/player_details/view/cubit/user_details/user_details_cubit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../auth/view/widgets/user_details_widget.dart';
+import '../../widgets/user_details_widget.dart';
 
 class SelectTrainingDaysScreen extends StatefulWidget {
   const SelectTrainingDaysScreen({super.key});

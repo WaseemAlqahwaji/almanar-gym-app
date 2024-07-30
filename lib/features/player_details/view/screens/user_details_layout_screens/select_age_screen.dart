@@ -1,5 +1,5 @@
-import 'package:almanar_application/features/auth/view/widgets/list_wheel_widget.dart';
-import 'package:almanar_application/features/auth/view/widgets/user_details_widget.dart';
+import 'package:almanar_application/features/player_details/view/widgets/list_wheel_widget.dart';
+import 'package:almanar_application/features/player_details/view/widgets/user_details_widget.dart';
 import 'package:almanar_application/features/player_details/view/cubit/user_details/user_details_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -8,7 +8,7 @@ import 'package:gap/gap.dart';
 import '../../../../../config/helpers/validation.dart';
 import '../../../../../config/routes/routes.dart';
 import '../../../../../config/theming/text_style.dart';
-import '../../../../core/view/widgets/back_button.dart';
+import '../../../core/view/widgets/back_button.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
   const ForgetPasswordScreen({super.key});

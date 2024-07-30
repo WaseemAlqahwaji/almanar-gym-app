@@ -8,7 +8,7 @@ import 'package:list_wheel_scroll_view_nls/list_wheel_scroll_view_nls.dart';
 
 import '../../../../../config/theming/text_style.dart';
 import '../../../../../config/theming/theme.dart';
-import '../../../../auth/view/widgets/user_details_widget.dart';
+import '../../widgets/user_details_widget.dart';
 
 class SelectWeightScreen extends StatefulWidget {
   const SelectWeightScreen({super.key});

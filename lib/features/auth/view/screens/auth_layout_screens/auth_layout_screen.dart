@@ -1,5 +1,5 @@
 import 'package:almanar_application/features/register/view/screens/register_screen.dart';
-import 'package:almanar_application/features/auth/view/widgets/toggle_auth_pages_button.dart';
+import 'package:almanar_application/features/player_details/view/widgets/toggle_auth_pages_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';

@@ -9,11 +9,19 @@ import '../../../config/networking/dio_factory.dart';
 import '../data/repo/login_repo.dart';
 
 class LoginCubit extends Cubit<LoginState> {
+
   final LoginRepo _loginRepo;
   LoginCubit(this._loginRepo) : super(const LoginState.initial());
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  @override
+  Future<void> close() {
+    emailController.dispose();
+    passwordController.dispose();
+    return super.close();
+  }
 
     void emitLoginState() async {
     emit(const LoginState.loginLoading());

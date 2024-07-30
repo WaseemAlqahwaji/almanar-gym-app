@@ -1,5 +1,5 @@
 import 'package:almanar_application/config/helpers/extensions.dart';
-import 'package:almanar_application/features/auth/view/widgets/pointer_divider.dart';
+import 'package:almanar_application/features/player_details/view/widgets/pointer_divider.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

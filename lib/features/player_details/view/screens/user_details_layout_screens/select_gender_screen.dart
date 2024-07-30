@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../auth/view/widgets/select_gender_button_widget.dart';
-import '../../../../auth/view/widgets/user_details_widget.dart';
+import '../../widgets/select_gender_button_widget.dart';
+import '../../widgets/user_details_widget.dart';
 
 class SelectGenderScreen extends StatefulWidget {
   const SelectGenderScreen({super.key});
