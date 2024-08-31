@@ -3,11 +3,11 @@ import 'package:json_annotation/json_annotation.dart';
 part 'verify_request_body.g.dart';
 
 @JsonSerializable()
-class VerifyRequestBody {
+class VerifyRegisterRequestBody {
   final String code;
 
-  VerifyRequestBody({
+  VerifyRegisterRequestBody({
     required this.code,
   });
-  Map<String, dynamic> toJson() => _$VerifyRequestBodyToJson(this);
+  Map<String, dynamic> toJson() => _$VerifyRegisterRequestBodyToJson(this);
 }

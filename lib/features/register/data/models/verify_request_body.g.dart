@@ -6,12 +6,14 @@ part of 'verify_request_body.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-VerifyRequestBody _$VerifyRequestBodyFromJson(Map<String, dynamic> json) =>
-    VerifyRequestBody(
+VerifyRegisterRequestBody _$VerifyRegisterRequestBodyFromJson(
+        Map<String, dynamic> json) =>
+    VerifyRegisterRequestBody(
       code: json['code'] as String,
     );
 
-Map<String, dynamic> _$VerifyRequestBodyToJson(VerifyRequestBody instance) =>
+Map<String, dynamic> _$VerifyRegisterRequestBodyToJson(
+        VerifyRegisterRequestBody instance) =>
     <String, dynamic>{
       'code': instance.code,
     };

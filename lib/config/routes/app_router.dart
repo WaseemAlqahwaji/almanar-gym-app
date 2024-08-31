@@ -1,14 +1,17 @@
 import 'package:almanar_application/config/di/di.dart';
 import 'package:almanar_application/config/routes/routes.dart';
+import 'package:almanar_application/features/auth/enter_new_password/cubit/enter_new_password_cubit.dart';
+import 'package:almanar_application/features/auth/forget_password/cubit/forget_password_cubit.dart';
+import 'package:almanar_application/features/auth/verify_reset_password_code/cubit/verify_reset_password_code_cubit.dart';
 import 'package:almanar_application/features/login/logic/login_cubit.dart';
 import 'package:almanar_application/features/register/logic/register_cubit.dart';
-import 'package:almanar_application/features/auth/view/screens/auth_layout_screens/auth_layout_screen.dart';
+import 'package:almanar_application/features/auth/auth_layout_screen.dart';
 import 'package:almanar_application/features/food/view/cubit/food_cubit.dart';
 import 'package:almanar_application/features/home/view/cubit/home_cubit.dart';
 import 'package:almanar_application/features/home/view/screens/home_layout_screen.dart';
 import 'package:almanar_application/features/home_not_subscribe/view/cubit/cubit/home_not_subscribed_cubit.dart';
 import 'package:almanar_application/features/home_not_subscribe/view/screens/layout_screen.dart';
-import 'package:almanar_application/features/player_details/view/cubit/user_details/user_details_cubit.dart';
+import 'package:almanar_application/features/player_details/cubit/user_details_cubit.dart';
 import 'package:almanar_application/features/player_details/view/screens/user_details_layout_screens/user_details_layout_screen.dart';
 import 'package:almanar_application/features/register/view/screens/register_verification_code_screen.dart';
 import 'package:almanar_application/features/onboard/screens/landing_screen.dart';
@@ -23,9 +26,9 @@ import 'package:almanar_application/features/training/view/screens/training_musc
 import 'package:almanar_application/features/training/view/screens/training_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../features/auth/view/screens/enter_new_password_screen.dart';
-import '../../features/auth/view/screens/forget_password_screen.dart';
-import '../../features/auth/view/screens/verification_code_screen.dart';
+import '../../features/auth/enter_new_password/view/screens/enter_new_password_screen.dart';
+import '../../features/auth/forget_password/view/screens/forget_password_screen.dart';
+import '../../features/auth/verify_reset_password_code/view/screens/verify_reset_password_screen.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -90,7 +93,10 @@ class AppRouter {
         );
       case Routes.verificationCodeScreen:
         return MaterialPageRoute(
-          builder: (_) => const VerificationCodeScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<VerifyResetPasswordCodeCubit>(),
+            child: const VerifyResetPasswordScreen(),
+          ),
         );
       case Routes.homeNotSubscribedLayoutScreen:
         return MaterialPageRoute(
@@ -101,7 +107,10 @@ class AppRouter {
         );
       case Routes.enterNewPasswordScreen:
         return MaterialPageRoute(
-          builder: (_) => const EnterNewPasswordScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<EnterNewPasswordCubit>(),
+            child: const EnterNewPasswordScreen(),
+          ),
         );
       case Routes.trainingScreen:
         return MaterialPageRoute(
@@ -109,7 +118,10 @@ class AppRouter {
         );
       case Routes.forgetScreen:
         return MaterialPageRoute(
-          builder: (_) => const ForgetPasswordScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<ForgetPasswordCubit>(),
+            child: const ForgetPasswordScreen(),
+          ),
         );
       case Routes.registerVerificationCodeScreen:
         return MaterialPageRoute(

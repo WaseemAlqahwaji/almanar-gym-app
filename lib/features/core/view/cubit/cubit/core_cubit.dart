@@ -6,22 +6,4 @@ part 'core_cubit.freezed.dart';
 
 class CoreCubit extends Cubit<CoreState> {
   CoreCubit() : super(const CoreState.initial());
-
-    List<String> countryList = [
-    "EG",
-    "US",
-    "CA",
-    "FR",
-    "DE",
-    "IT",
-    "ES",
-    "GB",
-    "JP",
-    "AU",
-    "PT",
-    "IN",
-    "NL",
-    "NZ",
-    "SG",
-  ];
 }

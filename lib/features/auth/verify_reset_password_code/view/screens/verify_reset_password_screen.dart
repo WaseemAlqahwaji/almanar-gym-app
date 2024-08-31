@@ -1,23 +1,27 @@
 import 'package:almanar_application/config/theming/text_style.dart';
 import 'package:almanar_application/config/theming/theme.dart';
+import 'package:almanar_application/features/auth/verify_reset_password_code/cubit/verify_reset_password_code_cubit.dart';
+import 'package:almanar_application/features/auth/verify_reset_password_code/view/widgets/header_text_verify_reset_password.dart';
 import 'package:almanar_application/features/core/view/widgets/back_button.dart';
 import 'package:almanar_application/features/core/view/widgets/button_item.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:gap/gap.dart';
 
+import '../widgets/verify_reset_password_bloc_listner.dart';
 
-class VerificationCodeScreen extends StatefulWidget {
-  const VerificationCodeScreen({super.key});
+class VerifyResetPasswordScreen extends StatefulWidget {
+  const VerifyResetPasswordScreen({super.key});
 
   @override
-  State<VerificationCodeScreen> createState() => _VerificationCodeScreen();
+  State<VerifyResetPasswordScreen> createState() =>
+      _VerifyResetPasswordScreen();
 }
 
-class _VerificationCodeScreen extends State<VerificationCodeScreen> {
-  String? verificationValue;
+class _VerifyResetPasswordScreen extends State<VerifyResetPasswordScreen> {
   bool verificationIsNotComplete = false;
 
   @override
@@ -27,30 +31,13 @@ class _VerificationCodeScreen extends State<VerificationCodeScreen> {
         padding: EdgeInsets.all(20.0.h),
         child: Column(
           children: [
+            const VerifyResetPasswordBlocListner(),
             const Align(
               alignment: Alignment.centerRight,
               child: KBackButton(),
             ),
+            const HeaderTextVerifyResetPassword(),
             Gap(20.0.h),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Text(
-                    "تحقق",
-                    style: TextStyled.font24White600,
-                  ),
-                  Gap(10.0.h),
-                  Text(
-                    "تحقق من بريدك الالكتروني. لقد أرسلنا لك رقم التعريف الشخصي على بريدك الإلكتروني",
-                    style: TextStyled.font16Grey400,
-                  ),
-                ],
-              ),
-            ),
-            Gap(30.0.h),
             Directionality(
               textDirection: TextDirection.ltr,
               child: VerificationCode(
@@ -62,12 +49,16 @@ class _VerificationCodeScreen extends State<VerificationCodeScreen> {
                 underlineColor: KTheme.mainColor,
                 underlineWidth: 1.3,
                 onCompleted: (value) {
-                  verificationValue = value;
+                  context
+                      .read<VerifyResetPasswordCodeCubit>()
+                      .verificationValue = value;
                   FocusScope.of(context).unfocus();
                 },
                 onEditing: (onEditing) {
                   if (onEditing) {
-                    verificationValue = null;
+                    context
+                        .read<VerifyResetPasswordCodeCubit>()
+                        .verificationValue = null;
                   }
                 },
                 length: 6,
@@ -88,13 +79,7 @@ class _VerificationCodeScreen extends State<VerificationCodeScreen> {
             const Spacer(),
             KButton(
               onPressed: () {
-                if (verificationValue != null) {
-                  // context.pushNamed(Routes.enterNewPasswordScreen);
-                } else {
-                  setState(() {
-                    verificationIsNotComplete = true;
-                  });
-                }
+                onConfirm();
               },
               lable: "تأكيد",
               width: double.infinity,
@@ -104,5 +89,15 @@ class _VerificationCodeScreen extends State<VerificationCodeScreen> {
         ),
       ),
     );
+  }
+
+  void onConfirm() {
+    if (context.read<VerifyResetPasswordCodeCubit>().verificationValue != null) {
+      context.read<VerifyResetPasswordCodeCubit>().emitVerifyResetPasswordState();
+    } else {
+      setState(() {
+        verificationIsNotComplete = true;
+      });
+    }
   }
 }

@@ -85,6 +85,9 @@ dependencies:
   # Flutter Secure Storage provides API to store data in secure storage.
   flutter_secure_storage: ^9.2.2
 
+  # Toast Library for Flutter, Easily create toast messages in single line of code
+  fluttertoast: ^8.2.6
+
 
 
 

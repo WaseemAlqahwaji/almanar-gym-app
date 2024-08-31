@@ -32,7 +32,7 @@ class SignupBlocListener extends StatelessWidget {
             Navigator.pop(context);
             errorDialog(
               context,
-              errorMessage: error,
+              error: error,
             );
           },
         );
@@ -41,7 +41,7 @@ class SignupBlocListener extends StatelessWidget {
     );
   }
 
-  Future<dynamic> errorDialog(BuildContext context,{required String errorMessage}) {
+  Future<dynamic> errorDialog(BuildContext context,{required String error}) {
     return showDialog(
       context: context,
       builder: (context) => Dialog(
@@ -51,7 +51,7 @@ class SignupBlocListener extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                errorMessage,
+                error,
               ),
             ],
           ),

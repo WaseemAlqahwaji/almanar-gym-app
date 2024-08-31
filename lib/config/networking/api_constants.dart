@@ -3,6 +3,11 @@ class ApiConstants {
   static const String register = "register"; 
   static const String login = "login"; 
   static const String verifyAccount = "verify-account";
+  static const String getResetPasswordCode = "get-reset-password-code";
+  static const String verifyResetPasswordCode = "verify-reset-password-code";
+  static const String enterNewPassword = "reset-password";
+  static const String countries = "countries";
+  static const String editProfile = "edit-profile";
 }
 
 class ApiErrors {

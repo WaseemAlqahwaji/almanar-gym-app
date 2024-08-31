@@ -1,5 +1,4 @@
-import 'package:almanar_application/config/helpers/extensions.dart';
-import 'package:almanar_application/features/player_details/view/cubit/user_details/user_details_cubit.dart';
+import 'package:almanar_application/features/player_details/cubit/user_details_cubit.dart';
 import 'package:almanar_application/features/player_details/view/screens/user_details_layout_screens/select_practicing_screen.dart';
 import 'package:almanar_application/features/core/view/widgets/button_item.dart';
 import 'package:almanar_application/features/player_details/view/screens/user_details_layout_screens/select_age_screen.dart';
@@ -14,8 +13,8 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../config/routes/routes.dart';
 import '../../../../core/view/widgets/back_button.dart';
+import '../../../cubit/user_details_state.dart';
 import 'injuries_screen.dart';
 
 class UserDetailsLayoutScreen extends StatefulWidget {
@@ -41,7 +40,8 @@ class _UserDetailsLayoutScreenState extends State<UserDetailsLayoutScreen> {
           Flexible(
             child: PageView(
               physics: const NeverScrollableScrollPhysics(),
-              controller: context.read<UserDetailsCubit>().userDetailsPageController,
+              controller:
+                  context.read<UserDetailsCubit>().userDetailsPageController,
               children: userDetailsSubScreens,
             ),
           ),
@@ -53,7 +53,8 @@ class _UserDetailsLayoutScreenState extends State<UserDetailsLayoutScreen> {
                 BlocBuilder<UserDetailsCubit, UserDetailsState>(
                   builder: (context, state) {
                     return ConditionalBuilder(
-                      condition: context.read<UserDetailsCubit>().currentIndex == 0,
+                      condition:
+                          context.read<UserDetailsCubit>().currentIndex == 0,
                       builder: (context) => const SizedBox.shrink(),
                       fallback: (context) {
                         return KBackButton(
@@ -68,7 +69,7 @@ class _UserDetailsLayoutScreenState extends State<UserDetailsLayoutScreen> {
                 KButton(
                   onPressed: () {
                     if (context.read<UserDetailsCubit>().contAction()) {
-                      context.pushNamed(Routes.homeNotSubscribedLayoutScreen);
+                      context.read<UserDetailsCubit>().editProfile();
                     }
                   },
                   lable: "متابعة",

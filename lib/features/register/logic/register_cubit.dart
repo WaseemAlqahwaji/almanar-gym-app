@@ -43,7 +43,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   void emitVerifyAccountState() async {
     emit(const RegisterState.verifiedAccountLoading());
     final response = await _registerRepo.verifyAccount(
-      VerifyRequestBody(code: verificationValue),
+      VerifyRegisterRequestBody(code: verificationValue)
     );
     response.whenOrNull(success: (response) {
       emit(RegisterState.verifiedAccountSuccess(response));

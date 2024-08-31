@@ -19,20 +19,19 @@ class VerificationBlocListener extends StatelessWidget {
           current is VerifiedAccountLoading ||
           current is VerifiedAccountSuccess,
       listener: (context, state) {
-        print("********************* $state *********************");
         state.whenOrNull(
           initial: () {},
           verifiedAccountLoading: () {
             loadingDialog(context);
           },
           verifiedAccountSuccess: (verifyResponse) {
-            context.pushNamed(Routes.homeNotSubscribedLayoutScreen);
+            context.pushNamed(Routes.userDetailsLayoutScreen);
           },
           verifiedAccountFailure: (error) {
 
             errorDialog(
               context,
-              errorMessage: error,
+              error: error,
             );
           },
         );
@@ -41,7 +40,7 @@ class VerificationBlocListener extends StatelessWidget {
     );
   }
 
-  Future<dynamic> errorDialog(BuildContext context,{required String errorMessage}) {
+  Future<dynamic> errorDialog(BuildContext context,{required String error}) {
     return showDialog(
       context: context,
       builder: (context) => Dialog(
@@ -51,7 +50,7 @@ class VerificationBlocListener extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                errorMessage,
+                error,
               ),
             ],
           ),

@@ -1,7 +1,6 @@
-import 'package:almanar_application/features/core/view/cubit/cubit/core_cubit.dart';
+import 'package:almanar_application/config/di/di.dart';
 import 'package:almanar_application/features/core/view/widgets/text_form_item.dart';
-import 'package:almanar_application/features/player_details/view/cubit/user_details/user_details_cubit.dart';
-import 'package:country_icons/country_icons.dart';
+import 'package:almanar_application/features/player_details/cubit/user_details_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,6 +9,7 @@ import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
 import '../../../../../config/helpers/validation.dart';
 import '../../../../../config/theming/text_style.dart';
+import '../../widgets/countries_dialog.dart';
 
 class UserDetailsFormScreen extends StatefulWidget {
   const UserDetailsFormScreen({super.key});
@@ -82,13 +82,14 @@ class _UserDetailsFormScreenState extends State<UserDetailsFormScreen> {
                       Gap(15.0.h),
                       KTextForm(
                         readOnly: true,
-                        controller: context.read<UserDetailsCubit>().cityNameController,
+                        controller:
+                            context.read<UserDetailsCubit>().countryNameController,
                         title: "المدينة",
                         onTap: () async {
-                          await countryDialog(ctx);
+                          await showCountriesDialog(ctx);
                         },
                         validator: (value) {
-                          if(value == null || value.isEmpty){
+                          if (value == null || value.isEmpty) {
                             return "لا يجب أن يكون حقل المدينة فارغ";
                           }
                           return null;
@@ -118,52 +119,13 @@ class _UserDetailsFormScreenState extends State<UserDetailsFormScreen> {
     );
   }
 
-  Future<dynamic> countryDialog(BuildContext ctx) {
+  Future<dynamic> showCountriesDialog(BuildContext ctx) {
+    context.read<UserDetailsCubit>().emitGetCountryState();
     return showDialog(
       context: ctx,
-      builder: (context) => Dialog(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Text(
-                "أختر دولتك",
-                style: TextStyled.font18Black600,
-              ),
-              Flexible(
-                child: ListView.separated(
-                  separatorBuilder: (context, index) => Container(
-                    color: Colors.grey.withOpacity(.7),
-                    width: double.infinity,
-                    height: 1,
-                  ),
-                  itemCount: ctx.read<CoreCubit>().countryList.length,
-                  itemBuilder: (context, index) => Directionality(
-                    textDirection: TextDirection.ltr,
-                    child: GestureDetector(
-                      onTap: () {
-                        ctx.read<UserDetailsCubit>().cityNameController.text = "${ctx.read<CoreCubit>().countryList[index]}y";
-                        Navigator.of(context).pop();
-                      },
-                      child: ListTile(
-                        leading: SizedBox(
-                          width: 30.0.w,
-                          height: 30.0.h,
-                          child: CountryIcons.getSvgFlag(
-                            ctx.read<CoreCubit>().countryList[index],
-                          ),
-                        ),
-                        title: Text(
-                          ctx.read<CoreCubit>().countryList[index],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+      builder: (context) => BlocProvider.value(
+        value: getIt<UserDetailsCubit>(),
+        child: const CountriesDialog(),
       ),
     );
   }

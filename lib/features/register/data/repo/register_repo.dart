@@ -18,9 +18,9 @@ class RegisterRepo {
     }
   }
 
-  Future<ApiResult> verifyAccount(VerifyRequestBody verifyRequestBody) async {
+  Future<ApiResult> verifyAccount(VerifyRegisterRequestBody verifyRegisterRequestBody) async {
     try {
-      final response = await _apiService.verifyAccount(verifyRequestBody);
+      final response = await _apiService.verifyAccount(verifyRegisterRequestBody);
       return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));

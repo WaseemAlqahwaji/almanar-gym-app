@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../login/view/screens/login_screen.dart';
+import '../login/view/screens/login_screen.dart';
 
 class AuthLayoutScreen extends StatefulWidget {
   final bool isLogin;
